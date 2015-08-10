@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal"
+    android:background="@color/white">
+    <RelativeLayout
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:paddingLeft="10dip"
+	    android:paddingRight="10dip"
+	    android:paddingTop="5dip"
+	    android:paddingBottom="5dip"
+	    android:background="@drawable/top_bg_line">
+		<Button 
+			android:id="@+id/setloginbackbtn"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_alignParentLeft="true"
+	    	android:background="@drawable/back01"
+			/>
+
+		<TextView
+			android:id="@+id/high_rise"
+			android:layout_centerInParent="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="设  置"
+			android:textColor="@color/white"
+			android:textSize="20sp" />
+	</RelativeLayout>
+    
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="15dp"
+	    android:paddingLeft="10pt"
+	    android:paddingRight="20pt">
+	    <TextView 
+	        android:text="手 机："
+	        android:layout_width="40pt"
+	        android:hint="请输入手机号"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:textColor="@color/gray"
+	        android:phoneNumber="true"
+	        android:textSize="18sp"/>
+	    <EditText 
+	        android:id="@+id/loginSetMb"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"/>
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="10pt"
+	    android:paddingRight="20pt"
+	    android:layout_marginTop="8pt">
+	    <TextView 
+	        android:text="密 码："
+	        android:layout_width="40pt"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:textColor="@color/gray"
+	        android:textSize="18sp"/>
+	    <EditText 
+	        android:id="@+id/loginSetPwd"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:password="true"
+	        android:layout_weight="1"/>
+	</LinearLayout>
+		<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center_horizontal"
+	    android:layout_marginTop="5pt">
+	    <TextView 
+	        android:text="修改密码"
+	        android:id="@+id/edtPwd"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:layout_marginLeft="35dp"
+	        android:textSize="15sp"/>
+	    <TextView 
+	    	android:text="忘记密码"
+	        android:id="@+id/forgetPwd"
+	        android:gravity="center_horizontal"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="#FFA54F"
+	        android:layout_marginLeft="50dp"
+	        android:textSize="15sp"
+	       />
+	</LinearLayout>
+	<Button 
+	    android:id="@+id/loginSetBtn"
+	    android:layout_width="50pt"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="8pt"
+	    android:textSize="16sp"
+	    android:text="登    录"/>
+</LinearLayout>

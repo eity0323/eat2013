@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="#e3e3e3"
+	android:layout_gravity="center"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:orientation="vertical" >
+
+	<RelativeLayout
+		android:background="@drawable/top_bg_line"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:paddingBottom="5dip"
+		android:paddingLeft="10dip"
+		android:paddingRight="10dip"
+		android:paddingTop="5dip" >
+
+		<Button
+			android:background="@drawable/back01"
+			android:id="@+id/back"
+			android:layout_alignParentLeft="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			android:id="@+id/centertext"
+			android:layout_centerInParent="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="智能配餐"
+			android:textColor="@color/white"
+			android:textSize="20dp" />
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/textage"
+			android:layout_height="40dp"
+			android:layout_width="wrap_content"
+			android:text="年       龄："
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<EditText
+			android:id="@+id/age"
+			android:layout_alignParentRight="true"
+			android:layout_height="40dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="50dp"
+			android:layout_toRightOf="@id/textage"
+			android:layout_width="fill_parent"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<TextView
+			android:gravity="center"
+			android:layout_alignRight="@id/age"
+			android:layout_alignTop="@id/age"
+			android:layout_height="40dp"
+			android:layout_marginRight="10dp"
+			android:layout_width="wrap_content"
+			android:text="岁"
+			android:textSize="15dp" />
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/texthight"
+			android:layout_height="40dp"
+			android:layout_width="wrap_content"
+			android:text="身       高："
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<EditText
+			android:id="@+id/hight"
+			android:layout_alignParentRight="true"
+			android:layout_height="40dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="50dp"
+			android:layout_toRightOf="@id/texthight"
+			android:layout_width="fill_parent"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<TextView
+			android:gravity="center"
+			android:layout_alignRight="@id/hight"
+			android:layout_alignTop="@id/hight"
+			android:layout_height="40dp"
+			android:layout_marginRight="10dp"
+			android:layout_width="wrap_content"
+			android:text="厘米"
+			android:textSize="15dp" />
+	</RelativeLayout>
+
+	<LinearLayout
+		android:layout_gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/texthight"
+			android:layout_height="40dp"
+			android:layout_width="wrap_content"
+			android:text="性       别："
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<com.gae.view.SlipButtonSex
+			android:gravity="center"
+			android:id="@+id/slipbtnsex"
+			android:layout_height="30dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginTop="10dp"
+			android:layout_width="wrap_content" />
+	</LinearLayout>
+
+	<RelativeLayout
+		android:layout_gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/textweight"
+			android:layout_height="40dp"
+			android:layout_width="wrap_content"
+			android:text="体       重："
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<EditText
+			android:id="@+id/weight"
+			android:layout_alignParentRight="true"
+			android:layout_height="40dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="50dp"
+			android:layout_toRightOf="@id/textweight"
+			android:layout_width="fill_parent"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<TextView
+			android:gravity="center"
+			android:layout_alignRight="@id/weight"
+			android:layout_alignTop="@id/weight"
+			android:layout_height="40dp"
+			android:layout_marginRight="10dp"
+			android:layout_width="wrap_content"
+			android:text="公斤"
+			android:textSize="15dp" />
+	</RelativeLayout>
+
+	<LinearLayout
+		android:layout_gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/textgoal"
+			android:layout_height="40dp"
+			android:layout_width="wrap_content"
+			android:text="目       标："
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<Spinner
+			android:id="@+id/goalSpinner"
+			android:layout_height="40dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="50dp"
+			android:layout_width="fill_parent" />
+	</LinearLayout>
+		<LinearLayout
+		android:layout_gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/textgoal"
+			android:layout_height="40dp"
+			android:layout_width="wrap_content"
+			android:text="工作强度："
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<Spinner
+			android:id="@+id/workSpinner"
+			android:layout_height="40dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="50dp"
+			android:layout_width="fill_parent" />
+	</LinearLayout>
+<LinearLayout 
+	    android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_marginTop="20dp"
+	>
+	
+	<Button 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/eateringbtnback"
+		android:id="@+id/catering"
+		/>
+</LinearLayout>
+</LinearLayout>

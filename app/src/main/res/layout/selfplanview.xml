@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/camm"
+	android:layout_height="fill_parent"
+	android:layout_margin="10dp"
+	android:layout_width="fill_parent"
+	android:orientation="vertical" >
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/selfcollect"
+			android:layout_height="wrap_content"
+			android:layout_width="70dp"
+			android:text="类   型"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="150dp"
+			android:orientation="horizontal" >
+
+			<com.gae.view.ExpandTabView
+				android:id="@+id/expandtab_viewtyp"
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent" />
+		</LinearLayout>
+
+		<TextView
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="100dp" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/selfcollect"
+			android:layout_height="wrap_content"
+			android:layout_width="70dp"
+			android:text="周   别"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="150dp"
+			android:orientation="horizontal" >
+
+			<com.gae.view.ExpandTabView
+				android:id="@+id/expandtab_viewweek"
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent" />
+		</LinearLayout>
+
+		<TextView
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="100dp" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="15dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="70dp"
+			android:text="标   题"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<EditText
+			android:id="@+id/plantitle"
+			android:layout_height="40dp"
+			android:layout_width="fill_parent" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="15dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="70dp"
+			android:text="详   情"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<EditText
+			android:id="@+id/infoplan"
+			android:layout_height="100dp"
+			android:layout_width="fill_parent" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:layout_width="fill_parent" >
+
+		<Button
+			android:gravity="center"
+			android:id="@+id/commid"
+			android:layout_gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="提交我的计划" />
+	</LinearLayout>
+
+</LinearLayout>

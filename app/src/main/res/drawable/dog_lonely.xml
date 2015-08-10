@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:duration="300" android:drawable="@drawable/lonely_a1" />
+	<item android:duration="500" android:drawable="@drawable/lonely_a2" />
+	<item android:duration="500" android:drawable="@drawable/lonely_b" />
+	<item android:duration="600" android:drawable="@drawable/lonely_c" />
+	<item android:duration="700" android:drawable="@drawable/lonely_d" />
+	<item android:duration="300" android:drawable="@drawable/lonely_e1" />
+	<item android:duration="500" android:drawable="@drawable/lonely_e2" />
+	<item android:duration="800" android:drawable="@drawable/lonely_f" />
+	
+	
+	<item android:duration="300" android:drawable="@drawable/lonely_a1" />
+	<item android:duration="500" android:drawable="@drawable/lonely_a2" />
+	<item android:duration="500" android:drawable="@drawable/lonely_b" />
+	<item android:duration="600" android:drawable="@drawable/lonely_c" />
+	<item android:duration="700" android:drawable="@drawable/lonely_d" />
+	<item android:duration="300" android:drawable="@drawable/lonely_e1" />
+	<item android:duration="500" android:drawable="@drawable/lonely_e2" />
+	<item android:duration="800" android:drawable="@drawable/lonely_f" />
+</animation-list> 

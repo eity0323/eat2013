@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="#e3e3e3"
+    android:gravity="right"
+    android:orientation="vertical"
+    android:paddingBottom="5dip" >
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bg_line"
+        android:paddingBottom="5dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="5dip" >
+
+        <Button
+            android:id="@+id/continueorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/continueorder" />
+
+        <TextView
+            android:id="@+id/centertext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/mycart"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+
+
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:orientation="vertical"
+	    android:id="@+id/bottom"
+	    >
+	
+	    <RelativeLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:orientation="horizontal" >
+	
+	        <ImageView
+	            android:id="@+id/rubbishbtn"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:src="@drawable/rubbish" 
+	            android:layout_alignParentLeft="true"
+	            />
+	
+	
+	        <TextView
+	            android:id="@+id/textView1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@id/rubbishbtn"
+	            android:layout_alignBottom="@+id/rubbishbtn"
+	            android:layout_marginLeft="10dip"
+	            android:text="已点份数："
+	            android:textColor="@color/gray" />
+	        <TextView
+	            android:id="@+id/totalnumtview"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBaseline="@+id/textView1"
+	            android:layout_alignBottom="@+id/textView1"
+	            android:layout_marginRight="34dp"
+	            android:layout_toRightOf="@id/textView1"
+	            android:text="12份"
+	            android:textColor="#ff5802" />
+	
+	        <TextView
+	            android:id="@+id/nextstep"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@id/totalnumtview"
+	            android:layout_alignParentRight="true"
+	            android:background="@drawable/step" />
+	
+	    </RelativeLayout>
+	
+		<LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="10dp"
+		    android:orientation="horizontal"
+		    >
+		    <TextView
+		    	android:id="@+id/phnumber"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="12dp"
+		        android:layout_marginTop="10dp"
+
+		        android:gravity="center"
+		        android:layout_weight="1"
+		        android:text="0755-84734534"
+		        android:textColor="#ffffff" />
+            <!--		        android:background="@drawable/callbg"-->
+		</LinearLayout>
+	</LinearLayout>
+    <ListView
+        android:layout_above="@id/bottom"
+        android:layout_below="@id/top"
+        android:id="@+id/orderfoodList"
+        android:layout_width="fill_parent"
+        android:layout_height="240dp"
+        android:layout_marginBottom="5pt"
+        android:layout_marginTop="-2pt"
+        android:layout_weight="0.34"
+        android:background="@drawable/list_corner"
+        android:cacheColorHint="#00000000"
+        android:divider="#dcdcdc"
+        android:dividerHeight="1px" />
+</RelativeLayout>

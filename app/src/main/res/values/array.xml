@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 设置列表 -->
+    <string-array name="eat_day_list">
+        <item>周    一</item>
+        <item>周   二 </item>
+        <item>周   三</item>
+        <item>周   四</item>
+        <item>周  五 </item>
+        <item>周   六</item>
+        <item>周   日</item>
+    </string-array>
+
+
+</resources> 

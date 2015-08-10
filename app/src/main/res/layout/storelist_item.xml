@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/llitem"
+	android:layout_height="match_parent"
+	android:layout_margin="10dp"
+	android:layout_width="match_parent"
+	android:orientation="horizontal" >
+
+	<RelativeLayout
+	    android:layout_weight="1"
+		android:layout_alignParentLeft="true"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="10dp"
+		android:layout_width="wrap_content"
+		>
+
+		<TextView
+			android:clickable="false"
+			android:id="@+id/foodname"
+			android:layout_height="wrap_content"
+			android:singleLine="true"
+			android:layout_width="90dip"
+			android:text="菜名"
+			android:textColor="@color/black"
+			android:textSize="15dp" />
+
+		<TextView
+			android:clickable="false"
+			android:id="@+id/foodnumber"
+			android:layout_below="@id/foodname"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			 android:textColor="@color/gbco"
+			android:text="销量：" />
+
+		<TextView
+		    android:id="@+id/xiaolang"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_below="@+id/foodname"
+		    android:layout_toRightOf="@+id/foodnumber"
+		     android:textColor="@color/gbco"
+		    android:clickable="false"
+		    android:text="100份" />
+
+	</RelativeLayout>
+
+	
+
+	<RelativeLayout
+	    android:layout_weight="1"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="10dp"
+		android:layout_toLeftOf="@id/foodprice"
+		android:layout_width="wrap_content"
+		 android:textColor="@color/gbco"
+		android:orientation="vertical" >
+
+		<TextView
+			android:clickable="false"
+			android:id="@+id/shopname"
+			android:layout_height="wrap_content"
+			android:layout_width="100dip"
+			 android:textColor="@color/gbco"
+			android:text="出品：食家" />
+	</RelativeLayout>
+	<TextView
+	        android:layout_weight="1"
+	        android:gravity="right"
+			android:clickable="false"
+			android:id="@+id/foodprice"
+			android:layout_alignParentRight="true"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="10dp"
+			android:layout_marginTop="15dp"
+			android:layout_width="wrap_content"
+			android:text="15元"
+			android:textColor="@color/red"
+			android:textSize="15dp" />
+</LinearLayout>

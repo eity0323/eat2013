@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e3e3e3"
+    android:orientation="vertical" >
+     <RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="10dip"
+	    android:paddingRight="10dip"
+	    android:paddingTop="5dip"
+	    android:paddingBottom="5dip"
+	    android:background="@drawable/top_bg_line" >
+    	
+        <Button
+            android:id="@+id/help_detail_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/back01" />
+        
+    	<TextView 
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_centerInParent="true"
+    		android:textSize="20sp"
+    		android:text="午餐指南"
+    		android:textColor="@color/white"
+    		android:id="@+id/help_detail_title" />
+
+    </RelativeLayout>
+    
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/help_detail_txt"
+	    android:text="help page"/>
+</LinearLayout>

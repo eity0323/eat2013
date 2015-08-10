@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="#e3e3e3"
+	android:layout_gravity="center"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:orientation="vertical" >
+
+	<RelativeLayout
+		android:background="@drawable/top_bg_line"
+		android:id="@+id/top"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:paddingBottom="5dip"
+		android:paddingLeft="10dip"
+		android:paddingRight="10dip"
+		android:paddingTop="5dip" >
+
+		<Button
+			android:background="@drawable/back01"
+			android:id="@+id/foodback"
+			android:layout_alignParentLeft="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			android:id="@+id/centertext"
+			android:layout_centerInParent="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="大腕菜"
+			android:textColor="@color/white"
+			android:textSize="20dp" />
+		<TextView 
+		    android:id="@+id/righttext"
+		    android:layout_height="wrap_content"
+		    android:layout_width="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:background="@drawable/comment"
+		    />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+	    android:id="@+id/selectitem"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/top"
+	    android:layout_marginLeft="3dip"
+	    android:layout_marginRight="3dip"
+	    android:background="@drawable/ad_back" >
+
+	    <RelativeLayout
+	        android:id="@+id/picleftlayout"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true" >
+
+	        <AbsoluteLayout
+	            android:id="@+id/abslayout"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentLeft="true" >
+
+	            <ImageView
+	                android:id="@+id/imvpic1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_x="14dp"
+	                android:layout_y="6dp"
+	                android:background="@drawable/imvpic1" />
+
+	            <ImageView
+	                android:id="@+id/imvpic2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_x="5dp"
+	                android:layout_y="2dp"
+	                android:background="@drawable/imvpic2" />
+	        </AbsoluteLayout>
+
+	        <ImageView
+	            android:id="@+id/imvpic3star"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@id/abslayout"
+	            android:layout_marginLeft="10dip"
+	            android:background="@drawable/full_star" />
+	    </RelativeLayout>
+
+	    
+
+
+	    <RelativeLayout
+	        android:id="@+id/centerlayout"
+	        android:layout_width="wrap_content"
+	        android:layout_height="100dip"
+	        android:layout_alignTop="@+id/picleftlayout"
+	        android:layout_toRightOf="@id/picleftlayout"
+	       >
+
+	        <TextView
+	            android:id="@+id/tvfood"
+	            android:layout_width="140dip"
+	            android:layout_height="wrap_content"
+	            android:text="大腕菜"
+	            android:singleLine="true" 
+	            android:textColor="#C29D83"
+	            android:textSize="20sp" />
+
+	        <RelativeLayout
+	            android:id="@+id/recaixilayout"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@id/tvfood" >
+
+	            <TextView
+	                android:id="@+id/tvcaixi"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="#C29D83"
+	                android:text="菜系:" />
+
+	            <TextView
+	                android:id="@+id/forcaixiname"
+	                android:layout_width="wrap_content"
+	                android:textColor="#C29D83"
+	                android:layout_height="wrap_content"
+	                android:layout_toRightOf="@id/tvcaixi" />
+	        </RelativeLayout>
+
+	        <RelativeLayout
+	            android:id="@+id/relatellayout"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@id/recaixilayout" >
+
+	            <TextView
+	                android:id="@+id/tvtel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="#C29D83"
+	                android:text="电话:" />
+
+	            <TextView
+	                android:id="@+id/fortelname"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="#C29D83"
+	                android:layout_toRightOf="@id/tvtel" />
+	        </RelativeLayout>
+
+	        <RelativeLayout
+	            android:id="@+id/relaaddrlayout"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@id/relatellayout" >
+
+	            <TextView
+	                android:id="@+id/tvaddr"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="#C29D83"
+	                android:text="地址:" />
+
+	            <TextView
+	                android:id="@+id/foraddrname"
+	                android:layout_width="100dip"
+	                android:singleLine="true" 
+	                android:layout_height="wrap_content"
+	                android:textColor="#C29D83"
+	                android:layout_toRightOf="@id/tvaddr" />
+	        </RelativeLayout>
+	    </RelativeLayout>
+
+	    <ImageView
+	        android:id="@+id/btnrelalayout"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginBottom="20dip"
+	        android:layout_marginTop="10dip"
+	        android:layout_alignBottom="@+id/centerlayout"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="10dp"
+	        android:background="@drawable/telorder" />
+
+	    <RelativeLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/btnrelalayout"
+	        android:layout_alignRight="@+id/btnrelalayout"
+	        android:gravity="right" >
+
+	        <ImageView
+	            android:id="@+id/huipic"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dip"
+	            android:layout_marginTop="10dip"
+	            android:background="@drawable/huipic" />
+
+	        <ImageView
+	            android:id="@+id/huopic"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dip"
+	            android:layout_marginTop="10dip"
+	            android:layout_toRightOf="@id/huipic"
+	            android:background="@drawable/huopic" />
+
+	        <ImageView
+	            android:id="@+id/weipic"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dip"
+	            android:layout_marginTop="10dip"
+	            android:layout_toRightOf="@id/huopic"
+	            android:background="@drawable/weipic" />
+	    </RelativeLayout>
+
+	</RelativeLayout>
+
+	<LinearLayout
+		android:gravity="center"
+		android:id="@+id/bottom"
+		android:layout_alignParentBottom="true"
+		android:layout_height="wrap_content"
+		android:layout_margin="5dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<ImageView
+			android:background="@drawable/carfood"
+			android:layout_weight="0.5"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:layout_width="wrap_content"
+			android:layout_weight="0.5"
+			android:text="已点" />
+
+		<TextView
+			android:id="@+id/totalnum"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_weight="0.5"
+			android:text="0" />
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_weight="0.5"
+			android:text="份" />
+
+		<ImageView
+			android:id="@+id/carfor"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:layout_weight="3"
+			android:src="@drawable/payfor"
+			android:layout_width="wrap_content" />
+
+		<ImageView
+			android:id="@+id/collectfor"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:layout_weight="2"
+			android:src="@drawable/collectfor"
+			android:layout_width="wrap_content" />
+	</LinearLayout>
+
+	<ListView
+		android:cacheColorHint="#00000000"
+		android:divider="@drawable/line"
+		android:dividerHeight="2px"
+		android:id="@+id/storeList"
+		android:layout_above="@id/bottom"
+		android:layout_below="@id/selectitem"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="2pt"
+		android:layout_marginLeft="3pt"
+		android:layout_marginRight="3pt"
+		android:layout_marginTop="2pt"
+		android:layout_width="fill_parent"
+		android:listSelector="@android:color/transparent"
+		android:scrollingCache="false" />
+
+</RelativeLayout>

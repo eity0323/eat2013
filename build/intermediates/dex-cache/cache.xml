@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\Android_SDK_v1.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="39f0853adbb602553e8df6c46c7ea704185eb7d2">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\Android_SDK_v1.2-e63df95b9f16cd28bde48f2d2297a36ef9ea596b.jar" />
+    </item>
+    <item
+        jar="D:\AndroidSDK\adt-bundle-windows-x86_64-20140321\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-a5e71de9f72d6487043ff9ff7be396b08923fbf8.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\Msc.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="a11eb2b2631d3538589d79e5d85e10d4dc216480">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\Msc-4afb75b981e9847dc2c87dfc828bd9712aea303d.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\pinyin4j-2.5.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="ae353005f973da1cd8545b54354504c2503f6865">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\pinyin4j-2.5.0-e61a409c4a88376a129c44e6821b20c98a8a4808.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\libammsdk.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="c1f63f70671d69ee38379728e1192db82e289246">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\libammsdk-55d2f85bb05f9beba6a743495767aaa5ac48aa1e.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\locSDK_3.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="590d32bdf5bb37ee372a21696b8f7853b224e31f">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\locSDK_3.3-8e04d27a8eda50c8a4f169577e978dd112354022.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\httpmime-4.1.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="e70d34d98f7f7f3b2b92105b9f2fe2a7a7184461">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\httpmime-4.1.3-db281d3baf7edecbdc3afb8b3d84b3971bc67298.jar" />
+    </item>
+
+</items>

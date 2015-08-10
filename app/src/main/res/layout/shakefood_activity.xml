@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+    android:background="#e3e3e3">
+   <RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="10dip"
+	    android:paddingRight="10dip"
+	    android:paddingTop="5dip"
+	    android:paddingBottom="5dip"
+	    android:background="@drawable/maintopback" >
+	
+	    <ImageView
+	        android:id="@+id/food_top_left"
+	        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:background="@drawable/back01"/>
+	
+	    <TextView
+	        android:id="@+id/food_top_center"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_centerVertical="true"
+	        android:textColor="@color/white"
+	        android:textSize="18sp"
+	        android:text="摇美食" />
+    </RelativeLayout>
+	<LinearLayout 
+		android:layout_marginBottom="2pt"
+		android:layout_marginLeft="3pt"
+		android:layout_marginRight="3pt"
+		android:layout_marginTop="2pt"
+		android:id="@+id/move_listItem"
+		android:gravity="bottom"
+	    android:layout_width="fill_parent"
+	    android:layout_height ="fill_parent"
+	    android:background="@drawable/shake_bg">  
+
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bg_line"
+        android:paddingBottom="5dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="5dip" >
+
+        <Button
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/back01" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/cname"
+            android:text="星级菜谱"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+        
+        <Button
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignParentRight="true"
+    	    android:background="@drawable/comment"
+    	    android:id="@+id/comment" />
+
+    </RelativeLayout>
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="150dp" >
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:background="@color/gbco"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true">
+            <LinearLayout 
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5pt">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+	                android:layout_marginLeft="90dp"
+	                android:textColor="@color/white"
+                    android:text="做法：" />
+	            <TextView 
+	                android:layout_width="80dp"
+	                android:layout_height="wrap_content"
+	                android:textColor="@color/white"
+	                android:id="@+id/mark"
+	                android:text="暴炒" />
+	            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+	                android:textColor="@color/white"
+                    android:text="口味：" />
+	            <TextView 
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="@color/white"
+	                android:id="@+id/taste"
+	                android:text="好吃" />
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="2pt">
+	            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+	                android:layout_marginLeft="90dp"
+	                android:textColor="@color/white"
+                    android:text="难度：" />
+	            <TextView 
+	                android:layout_width="80dp"
+	                android:layout_height="wrap_content"
+	                android:textColor="@color/white"
+	                android:id="@+id/diffic"
+	                android:text="容答复易" />
+	            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+	                android:textColor="@color/white"
+                    android:text="时间：" />
+	            <TextView 
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="@color/white"
+	                android:id="@+id/time"
+	                android:text="15分钟" />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView 
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3pt"
+            android:id="@+id/ico"
+            android:background="@drawable/cart"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="3pt"
+            android:layout_marginLeft="3pt"
+            android:layout_below="@+id/ico"
+            android:textColor="@color/white"
+            android:text="厨师名字"
+            android:id="@+id/uname" />
+        
+        <LinearLayout 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10pt"
+            android:layout_alignParentRight="true">
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/up"
+                android:text="顶：100人" />
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3pt"
+                android:id="@+id/down"
+                android:text="踩：50人" />
+        </LinearLayout>
+        
+    </RelativeLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="5pt"
+            android:orientation="horizontal">
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/gray"
+	            android:text="主料：" />
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:id="@+id/main"
+	            android:text="土豆" />
+        </LinearLayout>
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3pt"
+            android:layout_marginLeft="5pt"
+            android:layout_marginBottom="5pt"
+            android:orientation="horizontal">
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/gray"
+	            android:text="调料：" />
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginRight="3pt"
+	            android:id="@+id/sub"
+	            android:text="色拉油（适量）、食盐（适量）、老抽（少许）、剁椒（少许）" />
+        </LinearLayout>
+    </LinearLayout>
+   
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+        	android:layout_marginTop="5pt"
+            android:textColor="@color/gray"
+            android:text="步骤：" />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3pt"
+            android:layout_marginLeft="10pt"
+            android:layout_marginTop="3pt"
+        	android:layout_marginBottom="5pt"
+            android:id="@+id/step"
+            android:text="1.色拉油（适量）、食盐（适量）、老抽（少许）、剁椒（少许）\n2.基拉飞机了撒放大了公交两个改扩建阿德哥" />
+    </LinearLayout>
+	<LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3pt"
+            android:layout_marginLeft="5pt"
+            android:layout_marginBottom="5pt"
+            android:orientation="horizontal">
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/gray"
+	            android:text="照片：" />
+	        <ImageView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginRight="3pt"
+	            android:id="@+id/dico"
+	            android:background="@drawable/activitybill"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

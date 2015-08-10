@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="RoyalBlue">#4169E1</color>
+    <color name="LightSteelBlue">#B0C4DE</color>
+    <color name="gray">#333333</color>
+    <color name="red">#ff0000</color>
+    <color name="gbco">#878787</color>
+    <color name="eee">#eeeeee</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#aaf046</color>
+    <color name="transparent">#50000000</color>
+    <color name="no_back">#00000000</color>
+    <color name="no_color">#00000000</color>
+    <color name="popup_main_background">#b0000000</color>
+    <color name="black">#000000</color>
+    <color name="choose_eara_item_press_color">#f4f4f4</color>
+    <color name="orange">#ff8502</color>
+
+    <color name="text_num_gray">#333</color>
+    <color name="dialog_title_blue">#9CCCF7</color>
+</resources>

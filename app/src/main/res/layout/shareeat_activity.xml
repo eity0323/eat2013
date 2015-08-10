@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="#e3e3e3"
+	android:layout_gravity="center"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:orientation="vertical" >
+
+    <RelativeLayout 
+    	android:id="@+id/top"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true"
+    	android:orientation="horizontal"
+    	android:background="@drawable/topback"
+    	>
+    	<Button 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_centerVertical="true" 
+	    	android:id="@+id/contactback"
+	    	android:layout_alignParentLeft="true"
+	    	android:background="@drawable/rightback"
+    		/>
+    	<TextView 
+    		android:id="@+id/centertext"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_centerInParent="true"
+    		android:textColor="@color/white"
+    		android:text="请客吃饭"
+    		android:textSize="20dp"
+    		/>
+    </RelativeLayout>
+    <Button
+		android:id="@+id/contactnext"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_alignParentBottom="true"
+		android:background="@drawable/topback"
+		android:textColor="@color/white"
+		android:text="下   一   步" />
+	<FrameLayout 
+		android:layout_below="@id/top"
+		android:layout_above="@id/contactnext"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content">
+		<LinearLayout 
+			android:layout_gravity="center"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical" 
+		    android:background="@drawable/mainactivityback">
+		    <ListView android:id="@+id/lvContact"
+		        android:layout_width="fill_parent"
+		   		android:layout_height="wrap_content"
+		   		android:layout_marginLeft="20dp"
+		   		android:layout_marginRight="10dp"
+		   		android:cacheColorHint="#00000000"
+		   		android:scrollbars="none">
+		    	
+		    </ListView>
+		</LinearLayout>
+		<com.gae.view.SideBar  
+		    android:id ="@+id/sideBar"  
+		    android:layout_height="wrap_content"  
+		    android:layout_width="20dp"  
+		    android:layout_gravity="left|center_vertical"
+		    android:background="@drawable/mm_text_bg_trans"
+		/> 
+	</FrameLayout>
+</RelativeLayout>

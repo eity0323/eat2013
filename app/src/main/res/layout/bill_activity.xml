@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:background="@drawable/mainactivityback"
+	android:orientation="vertical" >
+		<RelativeLayout android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="10dip"
+		    android:paddingRight="10dip"
+		    android:paddingTop="5dip"
+		    android:paddingBottom="5dip"
+		    android:background="@drawable/top_bg_line" >
+	    	<Button 
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:id="@+id/billback"
+		    	android:layout_alignParentLeft="true"
+		    	android:background="@drawable/back01" />
+	    	<TextView 
+	    		android:id="@+id/centertext"
+	    		android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_centerInParent="true"
+	    		android:textColor="@color/white"
+	    		android:textSize="20sp"
+	    		android:text="我的账单"
+	    		/>
+
+    </RelativeLayout>
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:background="@drawable/spiner_line"
+		>
+		<TextView 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+			android:textColor="@color/gray"
+			android:text="总餐费："
+			/>
+	
+		<TextView
+		    android:id="@+id/sunmonney"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:textColor="#ff8502"
+		    android:text="100" />
+	
+		<ImageView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="2pt"
+	            android:layout_marginRight="2pt"
+	            android:layout_gravity="center"
+	            android:src="@drawable/divideline"
+	            />
+		<TextView 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+			android:text="总充值："
+			android:textColor="@color/gray"
+			/>
+		<TextView 
+			android:id="@+id/commonney"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:textColor="#ff8502"
+			android:text="100"
+			/>
+		<ImageView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="2pt"
+	            android:layout_marginRight="2pt"
+	            android:layout_gravity="center"
+	            android:src="@drawable/divideline"
+	            />
+		<TextView 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+			android:textColor="@color/gray"
+			android:text="结余："
+			/>
+		<TextView 
+			android:id="@+id/savmonney"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:textColor="#ff8502"
+		    android:singleLine="true"
+			android:text="100"
+			/>
+	</LinearLayout>
+	
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_margin="10dp"
+		>
+		<TextView 			android:layout_width="50dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:textColor="@color/gray"
+			/>
+		<TextView 
+			android:textColor="@color/gray"
+			android:layout_width="50dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="餐费"
+			/>
+		<TextView 
+			android:textColor="@color/gray"
+			android:layout_width="50dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="充值"
+			/>
+		<TextView 
+			android:textColor="@color/gray"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="结余"
+			/>
+	</LinearLayout>
+	<ListView
+		    android:id="@+id/billList"
+		    android:layout_width="fill_parent" 
+		    android:layout_height="365dp"
+		    android:background="@color/white"
+		    android:divider="#dcdcdc" 
+		    android:dividerHeight="1px" 
+		    android:cacheColorHint="#00000000" />
+</LinearLayout>

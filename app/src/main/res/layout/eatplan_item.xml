@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical" >
+	<TextView 
+		android:layout_width="100dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/planweek"
+		android:text="周一"
+		android:textSize="25dp"
+		android:textColor="@color/gray"
+		android:layout_margin="10dp"
+		/>
+	<TextView 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/planweek"
+		android:layout_alignParentTop="true"
+		android:id="@+id/plantitle"
+		android:text="好身体"
+		android:textSize="20dp"
+		/>
+	<TextView 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/planinfo"
+		android:layout_toRightOf="@id/planweek"
+		android:layout_below="@id/plantitle"
+		android:text="好好吃饭"
+		android:textSize="15dp"
+		/>
+       
+</RelativeLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:background="@drawable/mainactivityback"
+	 >
+	<LinearLayout 
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent"
+		android:orientation="vertical"
+		android:layout_alignParentTop="true">
+	    <RelativeLayout  
+	 	    android:layout_width="fill_parent"
+	 	    android:layout_height="wrap_content" 
+		    android:paddingLeft="10dip" 
+	 	    android:paddingRight="10dip" 
+	 	    android:paddingTop="5dip" 
+		    android:background="@drawable/maintopback"> 
+	
+	 	    <TextView 
+	 	        android:id="@+id/shop_top_left" 
+		        android:layout_width="wrap_content" 
+	 	        android:layout_height="wrap_content" 
+	 	        android:layout_alignParentLeft="true" 
+		        android:layout_centerVertical="true" 
+		        android:textSize="16sp" 
+		        android:textColor="#cccccc" 
+	 	        android:text="当前位置："/> 
+		
+	 	    <Button 
+	 	        android:id="@+id/shop_top_right" 
+	 	        android:layout_width="wrap_content" 
+	 	        android:layout_height="wrap_content" 
+	 	        android:layout_alignParentRight="true" 
+	 	        android:layout_centerVertical="true" 
+	 	        android:text="切换位置"
+	 	        android:textColor="@color/white"
+	 	        android:background="@drawable/basic_btn"
+	 	        /> 
+	 	     
+			  <TextView
+			      android:id="@+id/high_rise"
+			      android:layout_width="130dp"
+			      android:layout_height="wrap_content"
+			      android:layout_centerVertical="true"
+			      android:layout_toLeftOf="@+id/shop_top_right"
+			      android:layout_toRightOf="@+id/shop_top_left"
+			      android:ellipsize="marquee"
+			      android:focusable="true"
+			      android:focusableInTouchMode="true"
+			      android:gravity="center"
+			      android:marqueeRepeatLimit="marquee_forever"
+			      android:scrollHorizontally="true"
+			      android:singleLine="true"
+			      android:text="荣生大厦"
+			      android:textColor="#cccccc"
+			      android:textSize="16sp" />
+	 	    
+	    </RelativeLayout> 
+	    
+		<LinearLayout
+			android:id="@+id/lltopView"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		</LinearLayout>	  
+
+		<RelativeLayout
+			android:id="@+id/myView"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+			<com.gae.view.ScrollLayout
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/ScrollLayoutTest"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent">
+			</com.gae.view.ScrollLayout>
+	
+			<com.gae.view.PageControlView
+				android:id="@+id/pageControl"
+				android:layout_width="fill_parent"
+				android:layout_height="40px"			
+				android:layout_alignParentBottom="true"
+				android:layout_marginBottom="50dp"
+				android:gravity="center" />
+		</RelativeLayout>
+	</LinearLayout>
+	
+	<SlidingDrawer
+		android:content="@+id/content"
+		android:handle="@+id/handle"
+		android:id="@+id/slidingdrawer"		
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent"
+		android:orientation="vertical" >
+
+		<ImageButton
+			android:id="@+id/handle"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:background="@drawable/slidingdrawerimg" />
+
+		<RelativeLayout
+			android:background="@drawable/slidrawerback"
+			android:id="@+id/content"
+			android:padding="10dp"
+			android:layout_height="fill_parent"
+			android:layout_width="fill_parent" >
+
+			<ListView
+				android:background="@drawable/list_corner"
+				android:cacheColorHint="#00000000"
+				android:divider="#dcdcdc"
+				android:dividerHeight="1px"
+				android:gravity="center"
+				android:id="@+id/SlidListView"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:listSelector="@drawable/list_selector" >
+			</ListView>
+		</RelativeLayout>
+	</SlidingDrawer>
+
+</RelativeLayout>

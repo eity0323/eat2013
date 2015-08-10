@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:gravity="center" 
+    android:layout_height="fill_parent"
+    android:layout_gravity="center" 
+    android:background="#b0000000"
+    android:padding="10dp" 
+    android:orientation="vertical" >
+    <LinearLayout android:orientation="vertical" 
+        android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="3pt"
+	    android:layout_marginRight="3pt"
+	    android:padding="10dp"
+	    android:gravity="center"
+	    android:layout_gravity="center"
+	    android:background="@drawable/list_corner">
+	    <LinearLayout  
+	        android:layout_width="wrap_content"  
+	        android:layout_height="wrap_content"  
+	        android:layout_gravity="center"  
+	        android:layout_marginTop="20dip"  
+	        android:orientation="vertical" >  	  
+	        <TextView  
+	            android:id="@+id/dialog_pinfo1"  
+	            android:layout_width="wrap_content"  
+	            android:layout_height="wrap_content"  
+	            android:textColor="@color/gray"  
+	            android:textSize="16sp" />  
+	            
+	        <TextView  
+	            android:id="@+id/dialog_pinfo2"  
+	            android:layout_width="wrap_content"  
+	            android:layout_height="wrap_content"  
+	            android:textColor="@color/gray"  
+	            android:textSize="16sp" /> 
+	            
+	        <TextView  
+	            android:id="@+id/dialog_pinfo3"  
+	            android:layout_width="wrap_content"  
+	            android:layout_height="wrap_content"  
+	            android:textColor="@color/gray"  
+	            android:textSize="16sp" /> 
+	        <TextView  
+	            android:id="@+id/dialog_pinfo4"  
+	            android:layout_width="wrap_content"  
+	            android:layout_height="wrap_content"  
+	            android:textColor="@color/gray"  
+	            android:textSize="16sp" /> 
+	         <TextView  
+	            android:id="@+id/dialog_pinfo5"  
+	            android:layout_width="wrap_content"  
+	            android:layout_height="wrap_content"  
+	            android:textColor="@color/gray"  
+	            android:textSize="16sp" />        
+	    </LinearLayout>  
+	  
+		 <LinearLayout  
+	        android:layout_width="wrap_content"  
+	        android:layout_height="wrap_content"  
+	        android:layout_gravity="center"  
+	        android:layout_marginTop="20dip"  
+	        android:orientation="horizontal" >  
+	  
+	        <Button  
+	            android:id="@+id/custom_button_ok"  
+	            android:layout_width="wrap_content"  
+	            android:layout_height="wrap_content"  
+	            android:text="确定"  
+	            android:textColor="#ffffff"  
+	            android:textSize="18sp" />  
+	  
+	        <Button  
+	            android:id="@+id/custom_button_cancl"  
+	            android:layout_width="wrap_content"  
+	            android:layout_height="wrap_content"  
+	            android:layout_marginLeft="20dp"  
+	            android:text="取消"  
+	            android:textColor="#ffffff"  
+	            android:textSize="18sp" />  
+	    </LinearLayout>  
+	 </LinearLayout>   
+</LinearLayout>

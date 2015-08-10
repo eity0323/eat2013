@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:background="@drawable/mainactivityback"
+	android:orientation="vertical" >
+
+	<RelativeLayout
+		android:background="@drawable/maintopback"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:paddingBottom="5dip"
+		android:paddingLeft="10dip"
+		android:paddingRight="10dip"
+		android:paddingTop="5dip" >
+		<Button 
+			android:id="@+id/setbackbtn"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:background="@drawable/back01"
+			/>
+
+		<TextView
+			android:id="@+id/high_rise"
+			android:layout_centerInParent="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="设  置"
+			android:textColor="@color/white"
+			android:textSize="20sp" />
+	</RelativeLayout>
+	<ListView
+		android:background="@drawable/list_corner"
+		android:cacheColorHint="#00000000"
+		android:layout_margin="5dp"
+		
+		android:divider="#dcdcdc"
+		android:dividerHeight="1px"
+		android:gravity="center"
+		android:id="@+id/setlist"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:listSelector="@drawable/list_selector" >
+	</ListView>
+	
+	<Button 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="10dp"
+	    android:paddingTop="5dp"
+	    android:paddingBottom="5dp"
+	    android:text="退出登录"
+	    android:textColor="#ffffff"
+	    android:textSize="18sp"
+	    android:background="@drawable/btn_exit_login"
+	    android:id="@+id/set_login_exit"/>
+
+</LinearLayout>

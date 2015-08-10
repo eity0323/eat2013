@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="200dp" >
+
+    <!-- 退出游戏的背景图 -->
+    <ImageView
+        android:id="@+id/exitGameBackground"
+        android:layout_width="200dp"
+        android:layout_height="178dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/pet_alert_bg" />
+
+    <TextView 
+        android:id="@+id/alert_txt"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@id/exitGameBackground"
+        android:layout_alignLeft="@id/exitGameBackground"
+        android:singleLine="false"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#777777"
+        android:text="弹出框消息内容"/>
+    
+    <!-- 确认按钮 -->
+    <ImageButton
+        android:id="@+id/btn_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/exitGameBackground"
+        android:layout_alignLeft="@id/exitGameBackground"
+        android:layout_marginBottom="45dp"
+        android:layout_marginLeft="35dp"
+        android:background="@drawable/add" />
+
+    <!-- 取消按钮 -->
+    <ImageButton
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/exitGameBackground"
+        android:layout_alignRight="@id/exitGameBackground"
+        android:layout_marginBottom="45dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/cut" />
+
+</RelativeLayout>

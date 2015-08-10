@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    
+    <ImageView 
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+	    android:layout_marginTop="5pt"
+	    android:layout_marginLeft="3pt"
+        android:id="@+id/pic"/>
+    
+    <LinearLayout 
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5pt"
+        android:layout_marginLeft="3pt"
+        android:layout_marginBottom="3pt"
+        android:orientation="vertical">
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="@color/gbco"
+            android:id="@+id/cname"
+            android:text="菜名"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:id="@+id/method"
+            android:text="做法：蒸"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/degree"
+            android:text="难度：较困难"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7pt"
+        android:layout_marginBottom="3pt"
+        android:gravity="right"
+        android:orientation="vertical">
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/renqi"
+            android:text="顶：100人  踩：50人"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:id="@+id/taste"
+            android:text="口味：很好"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/time"
+            android:text="时间：10分钟"/>
+    </LinearLayout>
+
+</LinearLayout>

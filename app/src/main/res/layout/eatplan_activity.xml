@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="#eeeeeeee"
+	android:id="@+id/itemLayout"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:orientation="vertical" >
+
+	<RelativeLayout
+		android:background="@drawable/top_bg_line"
+		android:id="@+id/top"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:paddingBottom="5dip"
+		android:paddingLeft="10dip"
+		android:paddingRight="10dip"
+		android:paddingTop="5dip" >
+
+		<Button
+			android:background="@drawable/back01"
+			android:id="@+id/planctback"
+			android:layout_alignParentLeft="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			android:layout_centerInParent="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="美食计划"
+			android:textColor="@color/white"
+			android:textSize="20dp" />
+	</RelativeLayout>
+
+	<LinearLayout
+		android:background="@drawable/spiner_line"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="150dp"
+			android:orientation="horizontal" >
+
+			<com.gae.view.ExpandTabView
+				android:id="@+id/expandtab_view"
+				android:layout_height="wrap_content"
+				android:layout_width="150dp" />
+		</LinearLayout>
+
+		<ImageView
+			android:layout_gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="2pt"
+			android:layout_marginRight="2pt"
+			android:layout_width="wrap_content"
+			android:src="@drawable/divideline" />
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/selfcollect"
+			android:layout_gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="150dp"
+			android:text="制定我的美食计划"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/collectcontact"
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent" >
+	</LinearLayout>
+
+</LinearLayout>

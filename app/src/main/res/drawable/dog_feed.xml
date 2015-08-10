@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:duration="300" android:drawable="@drawable/dog_feed_a" />
+	<item android:duration="500" android:drawable="@drawable/dog_feed_b" />
+	<item android:duration="600" android:drawable="@drawable/dog_feed_c" />
+	<item android:duration="700" android:drawable="@drawable/dog_feed_d" />
+	<item android:duration="300" android:drawable="@drawable/dog_feed_e" />
+	
+	<item android:duration="300" android:drawable="@drawable/dog_feed_a" />
+	<item android:duration="500" android:drawable="@drawable/dog_feed_b" />
+	<item android:duration="600" android:drawable="@drawable/dog_feed_c" />
+	<item android:duration="700" android:drawable="@drawable/dog_feed_d" />
+	<item android:duration="300" android:drawable="@drawable/dog_feed_e" />
+</animation-list> 

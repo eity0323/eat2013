@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical"
+	android:background="@drawable/mainactivityback"
+	>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bg_line"
+        android:paddingBottom="5dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="5dip" >
+
+        <Button
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/back01" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/myorder"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+   	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:background="@drawable/spiner_line" >
+        
+   	    <TextView 
+            android:id="@+id/cartbtn"
+   	        android:layout_width="150dp"
+   	        android:layout_height="wrap_content"
+   	        android:textColor="#ff8502"
+   	        android:layout_gravity="center"
+   	        android:gravity="center"
+   	        android:text="购物车订单"/>
+   	    <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2pt"
+            android:layout_marginRight="2pt"
+            android:layout_gravity="center"
+            android:src="@drawable/divideline"
+            />
+   	    <TextView 
+   	        android:id="@+id/historybtn"
+   	        android:layout_width="150dp"
+   	        android:layout_height="wrap_content"
+   	        android:textColor="@color/gbco"
+   	        android:layout_gravity="center"
+   	        android:gravity="center"
+   	        android:text="历史订单"/>
+    </LinearLayout>
+    
+     <ListView
+	    android:id="@+id/orderList"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:divider="#dcdcdc" 
+	    android:dividerHeight="1dp" 
+	    android:layout_marginTop="-2dp"
+	    android:cacheColorHint="#00000000" />
+     
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:paddingTop="8dp"
+	    android:paddingBottom="8dp"
+	    android:id="@+id/shopcar_bottom"
+	    >
+	
+	    <RelativeLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:orientation="horizontal" >
+	        <TextView
+	            android:id="@+id/textView1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@id/rubbishbtn"
+	            android:layout_alignBottom="@+id/rubbishbtn"
+	            android:layout_marginLeft="10dip"
+	            android:text="已点份数："
+	            android:textColor="@color/gray" />
+	        <TextView
+	            android:id="@+id/totalnumtview"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBaseline="@+id/textView1"
+	            android:layout_alignBottom="@+id/textView1"
+	            android:layout_marginRight="34dp"
+	            android:layout_toRightOf="@id/textView1"
+	            android:text="12份"
+	            android:textColor="#ff5802" />
+	
+	        <TextView
+	            android:id="@+id/nextstep"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@id/totalnumtview"
+	            android:layout_alignParentRight="true"
+	            android:background="@drawable/step" />
+	
+	    </RelativeLayout>
+	
+		<LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="10dp"
+		    android:orientation="horizontal"
+		    >
+		    <TextView
+		    	android:id="@+id/phnumber"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="12dp"
+		        android:layout_marginTop="10dp"
+
+		        android:gravity="center"
+		        android:layout_weight="1"
+		        android:text="联系餐馆"
+		        android:textColor="#ffffff" />
+            <!--android:background="@drawable/callbg"-->
+		</LinearLayout>
+	</LinearLayout>
+ </LinearLayout>

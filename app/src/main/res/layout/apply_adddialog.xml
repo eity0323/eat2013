@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:layout_gravity="center"
+	android:orientation="vertical" >
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/list_corner"
+		>
+<TextView
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="应用列表"
+	android:textColor="@color/gray"
+	
+	android:textSize="20dp"
+	android:layout_centerInParent="true"
+	/>
+<Button 
+	android:layout_alignParentRight="true"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_centerHorizontal="true"
+	android:background="@drawable/close_btn"
+	android:layout_marginRight="10dp"
+	android:layout_marginTop="2dp"
+	android:id="@+id/dele"
+	/>
+</RelativeLayout>
+
+	<ListView
+		android:background="@drawable/list_corner"
+		android:cacheColorHint="#00000000"
+		android:divider="#dcdcdc"
+		android:dividerHeight="1px"
+		android:gravity="center"
+		android:id="@+id/dialogListView"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:listSelector="@drawable/list_selector" >
+	</ListView>
+
+</LinearLayout>

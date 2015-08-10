@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:duration="150" android:drawable="@drawable/dog_bath_a" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_b" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_c" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_d" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_e" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_f" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_g" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_h" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_i" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_j" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_k" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_l" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_m" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_n" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_o" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_p" />
+	<item android:duration="150" android:drawable="@drawable/dog_bath_q" />
+</animation-list> 

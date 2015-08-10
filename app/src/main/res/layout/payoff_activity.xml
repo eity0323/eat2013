@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:background="@drawable/mainactivityback"
+	android:orientation="vertical" >
+
+	<RelativeLayout
+		android:background="@drawable/top_bg_line"
+		android:id="@+id/top"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:paddingBottom="5dip"
+		android:paddingLeft="10dip"
+		android:paddingRight="10dip"
+		android:paddingTop="5dip" >
+
+		<Button
+			android:background="@drawable/continueorder"
+			android:id="@+id/orderback"
+			android:layout_alignParentLeft="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			android:id="@+id/centertext"
+			android:layout_centerInParent="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="付款"
+			android:textColor="@color/white"
+			android:textSize="20dp" />
+
+		<Button
+			android:background="@drawable/orderbtn"
+			android:id="@+id/orderbtn"
+			android:layout_alignParentRight="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+	</RelativeLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_margin="10dp"
+		android:orientation="horizontal" >
+		<TextView 
+		
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="联系电话："
+		android:textSize="15dp"
+		android:textColor="@color/gray"
+			/>
+		<EditText 
+			android:id="@+id/mb"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="15dp"
+			android:numeric="integer"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:textSize="15dp"
+		android:textColor="@color/gray"
+			/>
+	</LinearLayout>
+		<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_margin="10dp"
+		android:orientation="horizontal" >
+		<TextView 
+		
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="就餐方式："
+		android:textSize="15dp"
+		android:textColor="@color/gray"
+			/>
+		 <com.gae.view.SlipButtonEat
+	   	    android:id="@+id/slipbtneat"
+	   	    android:layout_marginLeft="10dp"
+	   	    android:gravity="center"
+	   	    android:layout_width="wrap_content"
+	   	    android:layout_height="25dp"/>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_margin="10dp"
+		android:orientation="horizontal" >
+		<TextView 
+		
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="送餐地址："
+		android:textSize="15dp"
+		android:textColor="@color/gray"
+			/>
+		<EditText 
+			android:id="@+id/addr"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="15dp"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:textSize="15dp"
+		android:textColor="@color/gray"
+			/>
+	</LinearLayout>
+
+		<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_margin="10dp"
+		android:orientation="horizontal" >
+		<TextView 
+		
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="付款方式："
+		android:textSize="15dp"
+		android:textColor="@color/gray"
+			/>
+		 <com.gae.view.SlipButtonPay
+	   	    android:id="@+id/slipbtnpay"
+	   	    android:layout_marginLeft="10dp"
+	   	    android:gravity="center"
+	   	    android:layout_width="wrap_content"
+	   	    android:layout_height="25dp"/>
+	</LinearLayout>
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"		
+		android:background="#eeeeee"
+		>
+		<TextView 
+			android:id="@+id/paytext"
+			android:layout_margin="10dp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="支付金额："
+			android:textSize="15dp"
+			android:textColor="@color/gray"
+			android:layout_alignParentLeft="true"
+			/>
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_toRightOf="@id/paytext"
+			android:layout_margin="10dp"
+			android:textColor="#FF7F50"
+			android:id="@+id/pay"
+			android:text="15元"
+			android:textSize="15dp"
+			/>
+		<Button 
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:background="@drawable/payoffbtn"
+			android:layout_alignParentRight="true"
+			android:layout_margin="10dp"
+			android:id="@+id/payoffbtn"
+			/>
+	</RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical" >
+	
+<LinearLayout
+		android:gravity="center"
+		android:id="@+id/bottom"
+		android:layout_alignParentBottom="true"
+		android:layout_height="wrap_content"
+		android:layout_margin="5dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<ImageView
+			android:background="@drawable/carfood"			
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			android:textSize="20dp"
+			android:textColor="#FF7F50"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_width="wrap_content"			
+			android:text="已点" />
+
+		<TextView
+			android:id="@+id/totalnum"
+			android:textColor="#FF7F50"
+			android:textSize="20dp"
+			android:layout_marginLeft="5dp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"			
+			android:text="0" />
+
+		<TextView
+			android:textColor="#FF7F50"
+			android:textSize="20dp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"	
+			android:layout_marginLeft="10dp"		
+			android:text="份" />
+
+		<ImageView
+			android:id="@+id/carfor"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="15dp"
+			android:src="@drawable/payfor"
+			android:layout_width="wrap_content" />
+	</LinearLayout>
+
+	<ListView
+		android:cacheColorHint="#00000000"
+		android:divider="@drawable/line"
+		android:dividerHeight="2px"
+		android:id="@+id/foodList"
+		android:layout_above="@id/bottom"
+		android:layout_height="fill_parent"
+		android:layout_marginBottom="2pt"
+		android:layout_marginLeft="3pt"
+		android:layout_marginRight="3pt"
+		android:layout_marginTop="2pt"
+		android:layout_width="fill_parent"
+		android:listSelector="@android:color/transparent"
+		android:scrollingCache="false" />
+	
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:duration="3000" android:drawable="@drawable/dog_normal_a" />
+	<item android:duration="1000" android:drawable="@drawable/dog_normal_b" />
+	<item android:duration="8000" android:drawable="@drawable/dog_normal_a" />
+	<item android:duration="1000" android:drawable="@drawable/dog_normal_b" />
+</animation-list> 

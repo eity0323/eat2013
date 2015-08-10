@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    <LinearLayout 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:paddingTop="5pt"
+       android:paddingBottom="5pt"
+       android:orientation="vertical">
+       
+        <TextView   
+	        android:id = "@+id/bookId"  
+	        android:layout_width = "wrap_content"   
+	        android:layout_height = "wrap_content"  
+	        android:layout_marginLeft = "3pt"   
+	        android:visibility="gone" />  
+	     
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+		    <TextView   
+		        android:id = "@+id/uname"  
+		        android:layout_width = "95dp"   
+		        android:layout_height = "wrap_content" 
+		        android:layout_marginLeft="3pt" 
+		        android:text="Amani"
+		        android:textColor="@color/gray"
+		        android:singleLine="true" />
+	
+		    <TextView
+		        android:id="@+id/uaddr"
+		        android:layout_width="200dp"
+		        android:layout_height="wrap_content"
+		        android:gravity="right"
+		        android:text="八卦三路荣升大厦802"
+		        android:textColor="@color/gray" />
+	    </LinearLayout>
+	         
+	     <TextView   
+	        android:id = "@+id/ubook"   
+	        android:layout_width = "wrap_content"  
+	        android:layout_height = "wrap_content"  
+	        android:gravity="left"
+		    android:layout_marginLeft="3pt" 
+	        android:textColor="@color/gray"
+	        android:text="酸菜鱼1份，胡萝卜1份" />
+
+	     <LinearLayout
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:orientation="horizontal" >
+
+	         <TextView
+	             android:layout_width="70dp"
+	             android:layout_height="wrap_content"
+		         android:layout_marginLeft="3pt" 
+	             android:text="送餐时间："
+	             android:textColor="@color/gray" />
+
+	         <TextView
+	             android:id="@+id/utime"
+	             android:layout_width="140dp"
+	             android:layout_height="wrap_content"
+	             android:singleLine="true"
+	             android:text="2013-05-03 10:38:15"
+	             android:textColor="@color/gray" />
+
+	         <TextView
+	             android:id="@+id/uprice"
+	             android:layout_width="65dp"
+	             android:layout_height="fill_parent"
+	             android:gravity="right"
+	             android:singleLine="true"
+	             android:text="10-13"
+	             android:textColor="@color/gray" />
+
+	         <TextView
+	             android:layout_width="20dp"
+	             android:layout_height="wrap_content"
+	             android:gravity="right"
+	             android:singleLine="true"
+	             android:text="元"
+	             android:textColor="@color/gray" />
+	     </LinearLayout>
+  
+  </LinearLayout>
+
+</LinearLayout>

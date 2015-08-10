@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+	android:layout_height="fill_parent"
+	android:layout_margin="10dp"
+	android:layout_width="fill_parent"
+	android:orientation="vertical" >
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="15dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="70dp"
+			android:text="类   别"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<TextView
+			android:gravity="center|left"
+			android:id="@+id/editplantyp"
+			android:layout_height="40dp"
+			android:layout_width="fill_parent"
+			android:text="类别"
+			android:textSize="15dp" />
+		
+	</LinearLayout>
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="15dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="70dp"
+			android:text="周   别"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<TextView
+			android:gravity="center|left"
+			android:id="@+id/editplanweek"
+			android:layout_height="40dp"
+			android:layout_width="fill_parent"
+			android:text="周别"
+			android:textSize="15dp" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="15dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="70dp"
+			android:text="标   题"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<EditText
+			android:id="@+id/editplantitle"
+			android:layout_height="40dp"
+			android:layout_width="fill_parent" />
+	</LinearLayout>
+
+	<RelativeLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="15dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:gravity="center"
+			android:id="@+id/recccc"
+			android:layout_height="wrap_content"
+			android:layout_width="70dp"
+			android:text="详   情"
+			android:textColor="@color/gray"
+			android:textSize="15dp" />
+
+		<EditText
+			android:id="@+id/editinfoplan"
+			android:layout_height="100dp"
+			android:layout_alignParentRight="true"
+			android:layout_toRightOf="@id/recccc"
+			android:layout_width="fill_parent" />
+	</RelativeLayout>
+
+	<LinearLayout
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:layout_width="fill_parent" >
+
+		<Button
+			android:gravity="center"
+			android:id="@+id/editbtn"
+			android:layout_gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="修改我的计划" />
+	</LinearLayout>
+
+</LinearLayout>

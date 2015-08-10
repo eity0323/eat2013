@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@drawable/ad_back"
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content" >
+
+	<ImageView
+		android:id="@+id/headIcom"
+		android:layout_margin="10dp"
+		android:src="@drawable/imvpic1"		
+		android:layout_height="121px"
+		android:layout_width="121px" />
+	<TextView 
+		android:layout_toRightOf="@id/headIcom"
+		android:layout_alignTop="@id/headIcom"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:textSize="25dp"
+		android:id="@+id/usename"
+		android:textColor="@color/gray"
+		android:text="名字"
+		/>
+	<ImageView 
+	    android:layout_alignParentRight="true"
+	    android:layout_alignTop="@id/headIcom"
+	    android:layout_height="wrap_content"
+	    android:layout_width="wrap_content"
+	    android:layout_marginRight="20dp"
+	    android:layout_marginTop="20dp"
+	    android:src="@drawable/shopopen"
+	    android:id="@+id/user_edit"/>
+	<TextView 
+		android:layout_below="@id/usename"
+		android:layout_alignLeft="@id/usename"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="5dp"
+		android:textColor="@color/gray"
+		android:id="@+id/addr"
+		android:text="地址"
+		/>
+
+</RelativeLayout>

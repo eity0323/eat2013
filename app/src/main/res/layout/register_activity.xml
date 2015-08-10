@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+        <RelativeLayout 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:paddingLeft="10dip"
+	    android:paddingRight="10dip"
+	    android:paddingTop="5dip"
+	    android:paddingBottom="5dip"
+	    android:background="@drawable/top_bg_line"
+    	>
+    	<Button 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:id="@+id/back"
+	    	android:layout_alignParentLeft="true"
+		    android:background="@drawable/back01"/>
+    	<TextView 
+    		android:id="@+id/centertext"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_centerInParent="true"
+    		android:textColor="@color/white"
+    		android:textSize="20dp"
+    		android:text="注册帐号"
+    		/>
+
+    </RelativeLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="5pt"
+	    android:paddingRight="10pt"
+	    android:layout_marginTop="15pt">
+	    <TextView 
+	        android:text="手机号码："
+	        android:layout_width="wrap_content"
+	        android:hint="请输入手机号"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:textColor="@color/gray"
+	        android:phoneNumber="true"
+	        android:textSize="18sp"/>
+	    <EditText 
+	        android:id="@+id/regMb"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"/>
+	</LinearLayout>
+<!-- 	 <Button -->
+<!-- 	        android:id="@+id/sendReg" -->
+<!-- 	        android:layout_width="60pt" -->
+<!-- 	        android:layout_height="wrap_content" -->
+<!-- 	        android:layout_marginLeft="55pt" -->
+<!-- 	        android:layout_marginTop="5pt" -->
+<!-- 	        android:text="获取初始密码"/> -->
+<!-- 	<LinearLayout  -->
+<!-- 	    android:layout_width="fill_parent" -->
+<!-- 	    android:layout_height="wrap_content" -->
+<!-- 	    android:paddingLeft="5pt" -->
+<!-- 	    android:paddingRight="10pt" -->
+<!-- 	    android:layout_marginTop="5pt"> -->
+<!-- 	    <TextView  -->
+<!-- 	        android:text="初始密码：" -->
+<!-- 	        android:layout_width="50pt" -->
+<!-- 	        android:layout_height="wrap_content" -->
+<!-- 	        android:gravity="center_horizontal" -->
+<!-- 	        android:textColor="@color/gray" -->
+<!-- 	        android:textSize="18sp"/> -->
+<!-- 	    <EditText  -->
+<!-- 	        android:id="@+id/regPwd" -->
+<!-- 	        android:layout_width="wrap_content" -->
+<!-- 	        android:layout_height="wrap_content" -->
+<!-- 	        android:password="true" -->
+<!-- 	        android:layout_weight="1"/> -->
+<!-- 	</LinearLayout> -->
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="5pt"
+	    android:paddingRight="5pt"
+	    >
+	    <CheckBox 
+	         android:id="@+id/checkbox"
+	        android:layout_width="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:layout_height="wrap_content"/>
+	        
+	    <TextView 
+	        android:id="@+id/msgText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dp"
+	        android:textSize="16sp"
+	        android:text="我已仔细阅读并接受《用户协议》"/>
+	 </LinearLayout>
+	 <LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="5pt"
+	    android:paddingRight="5pt"
+	    >
+<!-- 	<Button  -->
+<!-- 	    android:id="@+id/yes" -->
+<!-- 	    android:layout_width="35pt" -->
+<!-- 	    android:layout_height="wrap_content" -->
+<!-- 	    android:layout_marginLeft="40pt" -->
+<!-- 	    android:textSize="16sp" -->
+<!-- 	    android:text="确   定"/> -->
+	
+	<Button 
+	    android:id="@+id/no"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="50pt"
+	    android:background="@drawable/register_btn2"/>
+	
+	</LinearLayout>
+</LinearLayout>

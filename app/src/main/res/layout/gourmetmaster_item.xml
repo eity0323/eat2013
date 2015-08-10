@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
+
+    <RelativeLayout
+        android:id="@+id/imageico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="9dip"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/ivICO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:src="@drawable/somebody" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/renamel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_toRightOf="@id/imageico" >
+
+        <TextView
+            android:id="@+id/tvNAME"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="天地一号（3级）"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/renamel" >
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvRINUM"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/renamel"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="100张"
+        android:textColor="@color/gbco" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/renamel"
+        android:layout_alignTop="@+id/relativeLayout1"
+        android:text="推荐美食："
+        android:textColor="@color/gbco" />
+
+    <TextView
+        android:id="@+id/tvRCNUM"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:text="110种"
+        android:textColor="@color/gbco" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvRINUM"
+        android:layout_alignBottom="@+id/tvRINUM"
+        android:layout_toLeftOf="@+id/tvRCNUM"
+        android:text="照片："
+        android:textColor="@color/gbco" />
+
+</RelativeLayout>

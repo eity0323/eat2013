@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="fill_parent"
+    android:gravity="center" 
+    android:layout_height="fill_parent"
+    android:layout_gravity="center" 
+    android:background="#b0000000" >
+	<LinearLayout android:orientation="vertical" 
+	        android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="3pt"
+		    android:layout_marginRight="3pt"
+		    android:gravity="center"
+		    android:layout_gravity="center"
+		    android:background="#ffffff">
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical" 
+	        android:paddingBottom="5pt">
+			<RelativeLayout
+		        android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="3pt"
+			    android:paddingBottom="1pt">
+		        <Button
+		            android:id="@+id/back"
+		            android:layout_width="wrap_content"
+		            android:layout_height="40dp"
+		            android:layout_marginLeft="5dp"
+		            android:layout_marginTop="4dp"
+		            android:layout_alignParentLeft="true"
+		            android:src="@drawable/back01"
+		            android:text="继续点餐"
+		            android:textSize="16dp" />
+		
+		        <Button
+		            android:id="@+id/deleDialog"
+		            android:layout_width="25dp"
+		            android:layout_height="25dp"
+		            android:layout_gravity="right"
+		            android:layout_marginRight="6dp"
+		            android:layout_alignParentRight="true"
+		            android:background="@drawable/close_btn" />
+			</RelativeLayout>
+	        <ListView
+	            android:id="@+id/foodList"
+	            android:layout_width="fill_parent"
+	            android:layout_height="95dp"
+	            android:layout_margin="3pt"
+	            android:background="@drawable/list_corner"
+	            android:cacheColorHint="#00000000"
+	            android:divider="#dcdcdc"
+	            android:dividerHeight="1px" />
+	
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dp"
+	            android:layout_marginRight="5dp"
+	            android:background="@drawable/corner_border"
+	            android:orientation="vertical" 
+	            >
+				<LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="100dp"
+	                android:layout_marginLeft="5dp"
+	                android:layout_marginRight="5dp"
+	                android:layout_marginTop="5dp"
+	                android:background="@drawable/corner_border"
+	                android:cacheColorHint="#00000000"
+	                android:divider="#dcdcdc"
+	                android:dividerHeight="1px" 
+	                android:orientation="vertical">
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginLeft="5dp"
+	                android:layout_marginRight="5dp"
+	                android:layout_marginTop="5dp"
+	                android:orientation="horizontal"
+                    >
+	
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="30dp"
+	                    android:gravity="left"
+	                    android:text="联系手机："
+	                    android:textColor="@color/gray"
+	                    android:textSize="16dp" />
+	
+	                <EditText
+	                    android:id="@+id/mb"
+	                    android:layout_width="195dp"
+	                    android:layout_height="wrap_content"
+	                    android:textColor="@color/gray"
+	                    android:hint="请输入联系电话" />
+	            </LinearLayout>
+		      <LinearLayout
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:orientation="horizontal" >
+	              <TextView
+	               android:layout_width="80dp"
+	               android:layout_height="30dp"
+	               android:layout_marginLeft="5dp"
+	               android:hint="送餐时间：" 
+	               android:textSize="16dp"
+	               android:gravity="center_vertical"/>
+	             <TextView
+	               android:id="@+id/times"
+	               android:layout_width="190dp"
+	               android:layout_height="40dp"
+	               android:textColor="@color/gray"
+	               android:textSize="18dp"
+	               android:layout_marginLeft="3dp"
+	               android:paddingLeft="8dp"
+	               android:background="@color/white"
+	               android:gravity="center_vertical"/>
+	           </LinearLayout>
+	           </LinearLayout>
+		      
+	            <RelativeLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="100dp"
+	                android:layout_marginLeft="5dp"
+	                android:layout_marginRight="5dp"
+	                android:layout_marginTop="5dp"
+	                android:background="@drawable/corner_border"
+	                android:cacheColorHint="#00000000"
+	                android:divider="#dcdcdc"
+	                 android:layout_marginBottom="5dp"
+	                android:dividerHeight="1px" >
+					<RadioGroup 
+					    android:id="@+id/groupBtn"
+					    android:layout_width="fill_parent"
+	                    android:layout_height="fill_parent"
+	                    android:layout_marginTop="5dp">
+	                    <RadioButton
+	                        android:id="@+id/radio1"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:text="送餐地址：" 
+	                        android:textColor="@color/gray"
+	                        />
+	
+		                <RadioButton
+		                    android:id="@+id/radio2"
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="到餐馆就餐" 
+		                    android:textColor="@color/gray"/>
+	                 </RadioGroup>
+	                 
+					<EditText
+					    android:id="@+id/addr"
+					    android:layout_width="160dp"
+					    android:layout_height="wrap_content"
+					    android:layout_marginLeft="120dp"
+					    android:layout_marginTop="10dp"
+					    android:textColor="@color/gray"
+					    android:hint="华联大厦1302" />
+	              </RelativeLayout>
+	             
+					 <LinearLayout
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:orientation="horizontal"
+	                    >
+<!-- 		                <TextView -->
+<!-- 		                    android:id="@+id/payonline" -->
+<!-- 		                    android:layout_width="80dp" -->
+<!-- 		                    android:layout_height="30dp" -->
+<!-- 		                    android:layout_marginLeft="15dp" -->
+<!-- 		                    android:hint="在线支付"  -->
+<!-- 		                    android:textColor="@color/gray" -->
+<!-- 		                    android:textSize="16dp" -->
+<!-- 		                    android:gravity="center_vertical"/> -->
+<!-- 		                  <TextView -->
+<!-- 		                     android:id="@+id/money" -->
+<!-- 		                    android:layout_width="wrap_content" -->
+<!-- 		                    android:layout_height="wrap_content" -->
+<!-- 		                    android:layout_marginLeft="15dp" -->
+<!-- 		                    android:text="22.5"  -->
+<!-- 		                    android:textColor="@color/gray" -->
+<!-- 		                    android:textSize="18dp" -->
+<!-- 		                    android:gravity="center_vertical"/> -->
+		                  <Button 
+		                      android:id="@+id/payonline"
+		                      android:layout_width="wrap_content"
+		                      android:layout_height="40dp"
+		                      android:textSize="16dp"
+		                      android:layout_marginLeft="15dp"
+		                      android:textColor="@color/gray"
+		                      android:text="在线支付"/>
+		                   <Button 
+		                      android:id="@+id/paymoney"
+		                      android:layout_width="wrap_content"
+		                      android:layout_height="40dp"
+		                      android:textSize="16dp"
+		                      android:layout_marginLeft="20dp"
+		                      android:textColor="@color/gray"
+		                      android:text="现金支付"/>
+	                  </LinearLayout>
+	                   
+	        </LinearLayout>
+	    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

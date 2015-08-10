@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="5dip"
+    android:paddingBottom="5dip"
+     >
+
+<RelativeLayout
+    android:id="@+id/middlerelative"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+     android:layout_weight="1.5"
+    android:paddingLeft="5pt" >
+
+    <TextView
+        android:id="@+id/vname"
+        android:layout_width="90dip"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="湛江鱼港"
+        />
+       <RatingBar
+       	    android:layout_below="@id/vname"
+			android:id="@+id/ratingbar"
+			android:layout_gravity="center_vertical"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:rating="3"
+			android:numStars="5"
+			style="?android:attr/ratingBarStyleSmall" />
+</RelativeLayout>   
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@id/middlerelative"
+      android:layout_marginLeft="5dip"
+      android:layout_weight="1.5" >
+
+    <TextView
+        android:id="@+id/tvstype"
+        android:layout_width="130dip"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gbco"
+        android:text="（卤味、快餐）" />
+
+    <TextView
+        android:id="@+id/tvperaver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvstype"
+        android:textColor="@color/gbco"
+        android:text="人均：" />
+
+    <TextView
+        android:id="@+id/tvprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvperaver"
+        android:layout_alignBottom="@+id/tvperaver"
+        android:layout_toRightOf="@+id/tvperaver"
+        android:textColor="@color/gbco"        
+        android:text="约90-100元" />
+
+
+ </RelativeLayout>  
+ <RelativeLayout 
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginRight="10dip"
+     android:layout_alignParentRight="true"
+     android:layout_weight="1"
+     >
+
+    <ImageView
+        android:id="@+id/huopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/huopic" />
+    <ImageView
+        android:id="@+id/weipic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_toRightOf="@id/huopic"
+        android:src="@drawable/weipic" />
+    <ImageView
+        android:id="@+id/huipic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_toRightOf="@id/weipic"
+        android:src="@drawable/huipic" />
+
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/huopic"
+        android:drawableLeft="@drawable/location"
+        android:paddingRight="10dp"
+        android:textColor="@color/gbco"
+        android:text="110米"/> 
+ </RelativeLayout>
+
+</RelativeLayout>    
+ 

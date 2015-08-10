@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:background="@drawable/mainactivityback"
+	android:orientation="vertical" >
+
+	<RelativeLayout
+		android:background="@drawable/top_bg_line" 
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:paddingBottom="5dip"
+		android:paddingLeft="10dip"
+		android:paddingRight="10dip"
+		android:paddingTop="5dip" >
+
+		<ImageView
+        android:id="@+id/food_top_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/back01" />
+
+		<TextView
+			android:id="@+id/food_top_center"
+			android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="深圳"
+			android:textColor="@color/white"
+			android:textSize="18sp" />
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:paddingBottom="5dip"
+		android:paddingLeft="10dip"
+		android:paddingRight="10dip"
+		android:paddingTop="5dip" >		
+
+		<EditText
+			android:gravity="center"
+			android:hint="输入城市名称"
+			android:textColor="@color/gray"
+			android:id="@+id/edtcity"
+			android:layout_gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:padding="2dp"
+			android:layout_width="fill_parent" />
+
+		<ImageButton
+			android:background="#00000000"
+			android:id="@+id/btnright"
+			android:layout_alignRight="@+id/edtcity"
+			android:layout_height="40dp"
+			android:layout_width="wrap_content"
+			android:layout_marginTop="10dp"
+			android:paddingRight="10dp"
+			android:src="@drawable/language" />
+		<ImageButton
+			android:background="#00000000"
+			android:id="@+id/btnleft"
+			android:layout_alignLeft="@+id/edtcity"
+			android:layout_height="40dp"
+			android:layout_marginTop="10dp"
+			android:paddingLeft="10dp"
+			android:layout_width="wrap_content"
+			android:src="@drawable/search_city" />
+	</RelativeLayout>
+	<TextView 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="GPS定位到的城市"
+		android:textColor="@color/gray"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="5dp"
+		android:paddingLeft="10dp"
+		android:textSize="17dp"
+		android:drawableRight="@drawable/near_no"
+		/>
+	<TextView
+		android:id="@+id/gpscity"
+		android:layout_width="fill_parent"
+		android:layout_height="35dp"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:layout_marginTop="5dp"
+		android:background="@drawable/list_corner"
+		android:paddingLeft="10dp"
+		android:textSize="20dp"
+		android:text="深圳"
+		android:gravity="center_vertical"
+		android:textColor="#FFA54F"
+		/>
+	<TextView 
+		android:textColor="@color/gray"
+		android:layout_marginLeft="20dp"
+		android:layout_marginTop="5dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingLeft="10dp"
+		android:textSize="17dp"
+		android:text="热门城市"
+		/>
+  <ListView 
+  	android:id="@+id/citylist"
+  	android:layout_width="fill_parent"
+  	android:layout_height="250dp"
+  	android:paddingLeft="10dp"
+  	android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+  	android:layout_marginTop="5dp"
+  	android:cacheColorHint="#00000000"
+  	android:background="@drawable/list_corner"
+  	></ListView>
+</LinearLayout>

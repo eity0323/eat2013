@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@drawable/ad_back"
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content" >
+
+	<ImageView
+		android:id="@+id/headIcom"
+		android:layout_margin="10dp"
+		android:background="@drawable/imvpic1"		
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content" />
+	<TextView 
+		android:layout_toRightOf="@id/headIcom"
+		android:layout_alignTop="@id/headIcom"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="12dp"
+		android:textSize="16sp"
+		android:id="@+id/nouser"
+		android:textColor="#aaaaaa"
+		android:text="还没账号？"
+		/>
+	<TextView 
+	    android:layout_toRightOf="@id/nouser"
+	    android:layout_alignTop="@id/headIcom"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/nouser_register"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="5dp"
+		android:paddingTop="2dp"
+		android:paddingBottom="2dp"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:background="#99000000"
+		android:text="免费注册"/>
+	<TextView 
+		android:layout_below="@id/nouser"
+		android:layout_alignLeft="@id/nouser"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="8dp"
+		android:textColor="#aaaaaa"
+		android:textSize="16sp"
+		android:id="@+id/yesuser"
+		android:text="已有账号，"
+		/>
+	<TextView 
+	    android:layout_below="@id/nouser"
+	    android:layout_toRightOf="@id/yesuser"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="8dp"
+		android:paddingTop="2dp"
+		android:paddingBottom="2dp"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:id="@+id/nouser_login"
+		android:background="#99000000"
+		android:text="直接登录"/>
+</RelativeLayout>

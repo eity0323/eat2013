@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical"
+	android:background="@drawable/mainactivityback"
+	>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bg_line"
+        android:paddingBottom="5dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="5dip" >
+
+        <Button
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/back01" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:text="星级厨师"
+            android:id="@+id/name"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+   	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:background="@drawable/spiner_line" >
+        
+   	    <TextView 
+            android:id="@+id/cooker"
+   	        android:layout_width="150dp"
+   	        android:layout_height="wrap_content"
+   	        android:textColor="@color/orange"
+   	        android:layout_gravity="center"
+   	        android:gravity="center"
+   	        android:text="星级厨师"/>
+   	    <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2pt"
+            android:layout_marginRight="2pt"
+            android:layout_gravity="center"
+            android:src="@drawable/divideline"
+            />
+   	    <TextView 
+   	        android:id="@+id/cookbook"
+   	        android:layout_width="150dp"
+   	        android:layout_height="wrap_content"
+   	        android:textColor="@color/gbco"
+   	        android:layout_gravity="center"
+   	        android:gravity="center"
+   	        android:text="星级菜谱"/>
+    </LinearLayout>
+    
+    <ListView
+	    android:id="@+id/cookitem"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="360dp"
+	    android:divider="#dcdcdc" 
+	    android:dividerHeight="1dp" 
+	    android:cacheColorHint="#00000000" />
+    <Button 
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:id="@+id/addcook"
+    	android:layout_marginTop="3pt"
+    	android:layout_gravity="center"
+    	android:background="@drawable/caipu" />
+ </LinearLayout>

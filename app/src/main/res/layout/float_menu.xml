@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gif="http://schemas.android.com/apk/res/com.example"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:paddingTop="15dp"
+    android:background="@drawable/pet_menu_bg"
+    android:orientation="horizontal" >
+		<Button
+		    android:id="@+id/f_menu_start" 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:text="start"/>
+        <Button
+            android:id="@+id/btn_f_feed"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/pet_menu_item1"/>
+
+        <Button
+            android:id="@+id/btn_f_lonely"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/pet_menu_item2"/>
+
+        <Button
+            android:id="@+id/btn_f_hungry"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/pet_menu_item3"/>
+
+        <Button
+            android:id="@+id/btn_f_bath"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/pet_menu_item1" />
+        
+        <Button 
+            android:id="@+id/f_menu_exit"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/pet_menu_item4"/>
+</LinearLayout>

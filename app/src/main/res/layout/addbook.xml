@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+    android:background="#e3e3e3">
+    <RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="10dip"
+	    android:paddingRight="10dip"
+	    android:paddingTop="5dip"
+	    android:paddingBottom="5dip"
+	    android:background="@drawable/top_bg_line" >
+    	
+    	<Button 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:id="@+id/addbookback"
+	    	android:layout_alignParentLeft="true"
+    		android:background="@drawable/back01" />
+    	
+    	<TextView 
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_centerInParent="true"
+    		android:textColor="@color/white"
+    		android:textSize="20dp"
+    		android:id="@+id/bookOrder" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="360dp"
+        android:layout_marginLeft="3pt"
+        android:layout_marginTop="5pt"
+        android:orientation="vertical" >
+    	
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+        		android:textColor="@color/gray"
+	            android:text="联系电话：" />
+
+	        <EditText 
+	            android:layout_width="230dp"
+	            android:layout_height="40dp"
+		        android:phoneNumber="true"
+		        android:textSize="14sp"
+		        android:hint="您的订单联系电话"
+	            android:id="@+id/usermb"/>
+	    </LinearLayout>
+	    
+	   <LinearLayout 
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal">
+		    <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+        		android:textColor="@color/gray"
+		        android:text="价格范围："/>
+		    <EditText 
+	            android:layout_width="230dp"
+	            android:layout_height="40dp"
+	            android:textSize="14sp"
+	            android:hint="您愿意出什么价"
+		        android:id="@+id/userprice"/>
+	    </LinearLayout>
+	    
+	   <LinearLayout 
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal">
+		    <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_vertical"
+        		android:textColor="@color/gray"
+		        android:text="送餐时间："/>
+		    <EditText 
+	            android:layout_width="230dp"
+	            android:layout_height="40dp"
+	            android:gravity="center_vertical"
+	            android:paddingLeft="3pt"
+	            android:textSize="14sp"
+	            android:inputType="none"
+	            android:textColor="@color/gray"
+		        android:id="@+id/usertime"/>
+	    </LinearLayout>
+	    
+	   <LinearLayout 
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal">
+		    <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="start"
+        		android:textColor="@color/gray"
+		        android:text="送餐地址："/>
+		    <EditText 
+	            android:layout_width="230dp"
+	            android:layout_height="80dp"
+	            android:gravity="start"
+	            android:textSize="14sp"
+	            android:hint="餐品送到哪里"
+		        android:id="@+id/useraddr"/>
+	    </LinearLayout>
+	    
+	   <LinearLayout 
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal">
+
+	       <TextView
+	           android:layout_width="wrap_content"
+	           android:layout_height="wrap_content"
+	           android:layout_gravity="start"
+	           android:text="需求内容："
+	           android:textColor="@color/gray" />
+
+		    <EditText 
+	            android:layout_width="230dp"
+	            android:layout_height="80dp"
+	            android:textSize="14sp"
+	            android:hint="说说您想吃啥"
+	            android:gravity="start"
+		        android:id="@+id/userfood"/>
+	    </LinearLayout>
+    </LinearLayout>
+   <Button 
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_marginTop="5pt"
+    	android:layout_marginLeft="5dp"
+    	android:layout_marginRight="5dp"
+    	android:text="确认发布订单"
+    	android:textColor="#ffffff"
+    	android:id="@+id/addbooksure"
+    	android:layout_gravity="center"
+    	android:background="@drawable/btn_exit_login" />
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+    android:background="#e3e3e3">
+    <RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="10dip"
+	    android:paddingRight="10dip"
+	    android:paddingTop="5dip"
+	    android:paddingBottom="5dip"
+	    android:background="@drawable/top_bg_line" >
+    	
+        <Button
+            android:id="@+id/bookback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtname"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/back01" />
+        
+    	<TextView 
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_centerInParent="true"
+    		android:textSize="20dp"
+    		android:text="预定下单"
+    		android:textColor="@color/white"
+    		android:id="@+id/txtname" />
+
+    </RelativeLayout>
+    
+    <TextView 
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:layout_centerInParent="true"
+   		android:layout_marginLeft="5dp"
+   		android:textSize="16sp"
+   		android:textColor="#ff0000"
+   		android:text="注：该功能为餐馆使用"/>
+  
+    <ListView 
+	   	android:id="@+id/bookedlist"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="400dp"
+	    android:divider="#dcdcdc" 
+	    android:dividerHeight="1px" 
+	    android:cacheColorHint="#00000000"
+	    android:layout_margin="5dp"
+	    android:background="@drawable/list_corner" /> 
+
+</LinearLayout>

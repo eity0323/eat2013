@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:duration="300" android:drawable="@drawable/hungry_a1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_a2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_a3" />
+	<item android:duration="300" android:drawable="@drawable/hungry_b1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_b2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_b3" />
+	<item android:duration="500" android:drawable="@drawable/hungry_b4" />
+	<item android:duration="300" android:drawable="@drawable/hungry_c1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_c2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_c3" />
+	<item android:duration="300" android:drawable="@drawable/hungry_d1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_d2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_d3" />
+	<item android:duration="500" android:drawable="@drawable/hungry_d4" />
+	<item android:duration="300" android:drawable="@drawable/hungry_e1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_e2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_e3" />
+	<item android:duration="500" android:drawable="@drawable/hungry_e4" />
+	<item android:duration="300" android:drawable="@drawable/hungry_f1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_f2" />
+	
+	<item android:duration="300" android:drawable="@drawable/hungry_a1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_a2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_a3" />
+	<item android:duration="300" android:drawable="@drawable/hungry_b1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_b2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_b3" />
+	<item android:duration="500" android:drawable="@drawable/hungry_b4" />
+	<item android:duration="300" android:drawable="@drawable/hungry_c1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_c2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_c3" />
+	<item android:duration="300" android:drawable="@drawable/hungry_d1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_d2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_d3" />
+	<item android:duration="500" android:drawable="@drawable/hungry_d4" />
+	<item android:duration="300" android:drawable="@drawable/hungry_e1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_e2" />
+	<item android:duration="500" android:drawable="@drawable/hungry_e3" />
+	<item android:duration="500" android:drawable="@drawable/hungry_e4" />
+	<item android:duration="300" android:drawable="@drawable/hungry_f1" />
+	<item android:duration="500" android:drawable="@drawable/hungry_f2" />
+	
+</animation-list> 

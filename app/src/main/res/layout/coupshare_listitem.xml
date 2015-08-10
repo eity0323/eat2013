@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="4pt"
+    android:paddingRight="4pt"
+    android:paddingTop="4pt"
+    android:paddingBottom="4pt"
+    android:orientation="vertical">
+    
+    <LinearLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal">
+		<TextView 
+		    android:id="@+id/coupname"
+		    android:layout_width="150dip"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/black"
+		    android:text="蛋炒饭"/>
+    <LinearLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+<!-- 		<TextView -->
+<!-- 		    android:id="@+id/ding" -->
+<!-- 		    android:layout_width="wrap_content" -->
+<!-- 		    android:layout_height="wrap_content" -->
+<!-- 		    android:gravity="right" -->
+<!-- 		    android:textColor="@color/gbco" -->
+<!-- 		    android:layout_weight="1" -->
+<!-- 		    android:background="@drawable/coupshare_bg" -->
+<!-- 		    android:text="顶："/> -->
+		<TextView
+		    android:id="@+id/dingperson"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp"
+		    android:layout_weight="1"
+		    android:textColor="@color/gbco"
+		    android:text="顶：99人"/>
+<!-- 		<TextView -->
+<!-- 		    android:id="@+id/cai" -->
+<!-- 		    android:layout_width="wrap_content" -->
+<!-- 		    android:layout_height="wrap_content" -->
+<!-- 		     android:gravity="right" -->
+<!-- 		     android:textColor="@color/gbco" -->
+<!-- 		    android:layout_weight="1" -->
+<!-- 		    android:background="@drawable/coupshare_bg" -->
+<!-- 		    android:text="踩："/> -->
+		<TextView
+		    android:id="@+id/caiperson"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp"
+		    android:textColor="@color/gbco"
+		    android:text="踩：99人"/>
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+		<TextView
+		    android:id="@+id/othersongcan"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/gbco"
+		    android:layout_marginTop="7dp"
+		    android:text="将鸡蛋磕碎,取蛋黄倒入碗内,用打蛋器打匀。蛋清倒入另一个碗中,可以做汤用。鸡蛋的数量一般炒二两米饭用单个蛋黄。"
+		     />
+	
+	</LinearLayout>
+</LinearLayout>

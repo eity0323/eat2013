@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="#e3e3e3"
+	android:layout_gravity="center"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:orientation="vertical" >
+
+	<RelativeLayout
+		android:background="@drawable/topback"
+		android:id="@+id/top"
+		android:layout_alignParentTop="true"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<Button
+			android:background="@drawable/rightback"
+			android:id="@+id/contactback"
+			android:layout_alignParentLeft="true"
+			android:layout_centerVertical="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			android:id="@+id/centertext"
+			android:layout_centerInParent="true"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="请客吃饭"
+			android:textColor="@color/white"
+			android:textSize="20dp" />
+	</RelativeLayout>
+
+	<ImageView
+		android:background="@drawable/line"
+		android:id="@+id/centerimg"
+		android:layout_centerVertical="true"
+		android:layout_height="2dp"
+		android:layout_width="fill_parent" />
+
+	<ImageView
+		android:id="@+id/contectdelect"
+		android:layout_above="@id/centerimg"
+		android:layout_alignParentRight="true"
+		android:layout_height="30dp"
+		android:layout_margin="20dp"
+		android:layout_width="30dp"
+		android:src="@drawable/contactbtndelect" />
+
+	<RelativeLayout
+		android:id="@+id/llname"
+		android:layout_above="@id/centerimg"
+		android:layout_below="@id/top"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:id="@+id/text"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_margin="10dp"
+			android:text="已选好友："
+			android:textColor="@color/gray"
+			android:textSize="17dp" />
+
+		<LinearLayout
+			android:id="@+id/llnam"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/text"
+			android:layout_width="wrap_content"
+			android:orientation="vertical" >
+
+			<com.gae.view.MyViewGroup
+				android:id="@+id/myviewgroup"
+				android:layout_gravity="center"
+				android:layout_marginTop="3dp"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content" />
+		</LinearLayout>
+	</RelativeLayout>
+
+	<LinearLayout
+		android:id="@+id/llshop"
+		android:layout_below="@id/centerimg"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<ImageView
+			android:background="@drawable/slifoodorder"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			android:id="@+id/queryfood"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:layout_width="wrap_content"
+			android:text="为她/他选择美食？" />
+
+		<ImageView
+			android:layout_gravity="center_vertical|right"
+			android:layout_marginLeft="10dp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:src="@drawable/arraw" />
+
+		<TextView
+			android:id="@+id/foodfor"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:layout_width="wrap_content"
+			/>
+	</LinearLayout>
+
+	<ImageView
+		android:background="@drawable/line"
+		android:id="@+id/shopimg"
+		android:layout_below="@id/llshop"
+		android:layout_height="2dp"
+		android:layout_width="fill_parent" />
+
+	<LinearLayout
+		android:id="@+id/llfood"
+		android:layout_below="@id/shopimg"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal" >
+
+		<ImageView
+			android:background="@drawable/slishoporder"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+
+		<TextView
+			android:id="@+id/queryshop"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"			
+			android:layout_width="wrap_content"
+			android:text="为她/他选择餐馆？" />
+
+		<ImageView
+			android:layout_gravity="center_vertical|right"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:src="@drawable/arraw" />
+
+		<TextView
+			android:id="@+id/shopfor"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:singleLine="true"
+			android:layout_width="wrap_content"
+			/>
+	</LinearLayout>
+
+	<ImageView
+		android:background="@drawable/line"
+		android:layout_below="@id/llfood"
+		android:layout_height="2dp"
+		android:layout_width="fill_parent" />
+
+	<Button
+		android:background="@drawable/topback"
+		android:id="@+id/contactnext"
+		android:layout_alignParentBottom="true"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_marginLeft="5dp"
+		android:layout_marginRight="5dp"
+		android:text="发  起  邀  请"
+		android:textColor="@color/white" />
+
+</RelativeLayout>
