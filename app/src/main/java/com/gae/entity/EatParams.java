@@ -713,7 +713,7 @@ public class EatParams {
 	 * 
 	 * @return
 	 */
-	public boolean isNetworkVailable(Context context) {
+	public static boolean isNetworkVailable(Context context) {
 		ConnectivityManager cManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = cManager.getActiveNetworkInfo();
 		if (info != null && info.isAvailable()) {

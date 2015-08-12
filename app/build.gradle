@@ -20,10 +20,12 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:18.0.0'
+    compile 'de.greenrobot:eventbus:2.4.0'
     compile files('libs/Android_SDK_v1.2.jar')
     compile files('libs/httpmime-4.1.3.jar')
     compile files('libs/libammsdk.jar')
     compile files('libs/locSDK_3.3.jar')
     compile files('libs/Msc.jar')
     compile files('libs/pinyin4j-2.5.0.jar')
+    compile project(':oneCore')
 }

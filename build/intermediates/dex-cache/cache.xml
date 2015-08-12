@@ -2,25 +2,18 @@
 <items version="2" >
 
     <item
-        jar="F:\2015\android\myProject\sien\eat2013\app\libs\Android_SDK_v1.2.jar"
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\libammsdk.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="39f0853adbb602553e8df6c46c7ea704185eb7d2">
-        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\Android_SDK_v1.2-e63df95b9f16cd28bde48f2d2297a36ef9ea596b.jar" />
+        sha1="c1f63f70671d69ee38379728e1192db82e289246">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\libammsdk-55d2f85bb05f9beba6a743495767aaa5ac48aa1e.jar" />
     </item>
     <item
-        jar="D:\AndroidSDK\adt-bundle-windows-x86_64-20140321\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jar="C:\Users\sien\.gradle\caches\modules-2\files-2.1\de.greenrobot\eventbus\2.4.0\ddd166d01b3158d1c00576d29f7ed15c030df719\eventbus-2.4.0.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-a5e71de9f72d6487043ff9ff7be396b08923fbf8.jar" />
-    </item>
-    <item
-        jar="F:\2015\android\myProject\sien\eat2013\app\libs\Msc.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="a11eb2b2631d3538589d79e5d85e10d4dc216480">
-        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\Msc-4afb75b981e9847dc2c87dfc828bd9712aea303d.jar" />
+        sha1="ddd166d01b3158d1c00576d29f7ed15c030df719">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\eventbus-2.4.0-68f2c4d7542d627edf2e39b37442a2b603fd72a4.jar" />
     </item>
     <item
         jar="F:\2015\android\myProject\sien\eat2013\app\libs\pinyin4j-2.5.0.jar"
@@ -30,11 +23,46 @@
         <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\pinyin4j-2.5.0-e61a409c4a88376a129c44e6821b20c98a8a4808.jar" />
     </item>
     <item
-        jar="F:\2015\android\myProject\sien\eat2013\app\libs\libammsdk.jar"
+        jar="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\exploded-aar\eat2013\oneCore\unspecified\libs\ksoap2.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="c1f63f70671d69ee38379728e1192db82e289246">
-        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\libammsdk-55d2f85bb05f9beba6a743495767aaa5ac48aa1e.jar" />
+        sha1="9daf041a502b251a307312706e54a7ede7f86b39">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\ksoap2-5730ed5490f4ebf4b89ca357e10b4606c5303b31.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-0f4d7067c745a31ca17ec2896d121c6042f83a89.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\Android_SDK_v1.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="39f0853adbb602553e8df6c46c7ea704185eb7d2">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\Android_SDK_v1.2-e63df95b9f16cd28bde48f2d2297a36ef9ea596b.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\classes-734461ca63dcc19a1c56240ab923d5af358e7e2e.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\exploded-aar\eat2013\oneCore\unspecified\libs\fastjson-1.2.5.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="9f675e9a1b2bf1224183005752a9214226e8aa8e">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\fastjson-1.2.5-9783962537eef1cfdb8574e200c7891263e94401.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\libs\Msc.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="a11eb2b2631d3538589d79e5d85e10d4dc216480">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\Msc-4afb75b981e9847dc2c87dfc828bd9712aea303d.jar" />
     </item>
     <item
         jar="F:\2015\android\myProject\sien\eat2013\app\libs\locSDK_3.3.jar"
@@ -44,11 +72,32 @@
         <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\locSDK_3.3-8e04d27a8eda50c8a4f169577e978dd112354022.jar" />
     </item>
     <item
-        jar="F:\2015\android\myProject\sien\eat2013\app\libs\httpmime-4.1.3.jar"
+        jar="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\exploded-aar\eat2013\oneCore\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="e70d34d98f7f7f3b2b92105b9f2fe2a7a7184461">
-        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\httpmime-4.1.3-db281d3baf7edecbdc3afb8b3d84b3971bc67298.jar" />
+        sha1="e37661f19aa8af46ea24e40b493743becd220947">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\classes-f30067e59903208662009c214de0c0b86f9c6fb2.jar" />
+    </item>
+    <item
+        jar="D:\AndroidSDK\adt-bundle-windows-x86_64-20140321\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-c27bb3644aa7079de68e9b08aa835e91d68d3534.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\exploded-aar\eat2013\oneCore\unspecified\libs\xstream-1.4.5.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="61c0a127b237182fdf2ccc9cc2efbb5779a64a3b">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\xstream-1.4.5-8300b235121cfee5a1764c4ac34046c718dbb85e.jar" />
+    </item>
+    <item
+        jar="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\exploded-aar\eat2013\oneCore\unspecified\libs\xpp3_min-1.1.4c.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="19d4e90b43059058f6e056f794f0ea4030d60b86">
+        <dex dex="F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\xpp3_min-1.1.4c-7c13a632d6dfcb7d1c69764597fa2fc01316ece4.jar" />
     </item>
 
 </items>

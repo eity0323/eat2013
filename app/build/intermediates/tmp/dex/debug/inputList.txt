@@ -1,0 +1,15 @@
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\classes\debug
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-c27bb3644aa7079de68e9b08aa835e91d68d3534.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\eventbus-2.4.0-68f2c4d7542d627edf2e39b37442a2b603fd72a4.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\xpp3_min-1.1.4c-7c13a632d6dfcb7d1c69764597fa2fc01316ece4.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\ksoap2-5730ed5490f4ebf4b89ca357e10b4606c5303b31.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\locSDK_3.3-8e04d27a8eda50c8a4f169577e978dd112354022.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\classes-f30067e59903208662009c214de0c0b86f9c6fb2.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\Android_SDK_v1.2-e63df95b9f16cd28bde48f2d2297a36ef9ea596b.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-0f4d7067c745a31ca17ec2896d121c6042f83a89.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\libammsdk-55d2f85bb05f9beba6a743495767aaa5ac48aa1e.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\pinyin4j-2.5.0-e61a409c4a88376a129c44e6821b20c98a8a4808.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\xstream-1.4.5-8300b235121cfee5a1764c4ac34046c718dbb85e.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\fastjson-1.2.5-9783962537eef1cfdb8574e200c7891263e94401.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\Msc-4afb75b981e9847dc2c87dfc828bd9712aea303d.jar
+F:\2015\android\myProject\sien\eat2013\app\build\intermediates\pre-dexed\debug\classes-734461ca63dcc19a1c56240ab923d5af358e7e2e.jar

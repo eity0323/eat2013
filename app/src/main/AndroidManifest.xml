@@ -44,7 +44,7 @@
         android:theme="@style/AppTheme" >
         
         <activity
-            android:name="com.gae.eat2013.initActivity"
+            android:name=".initActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
