@@ -37,6 +37,7 @@ import android.widget.SlidingDrawer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gae.UInterface.IMainAction;
 import com.gae.adapter.MainGridViewAdapter;
 import com.gae.adapter.SliListViewAdapter;
 import com.gae.basic.ProgressRing;
@@ -47,6 +48,7 @@ import com.gae.dbHelper.ApplydbHelper;
 import com.gae.entity.EatParams;
 import com.gae.entity.applyItem;
 import com.gae.listener.GpsCompleteListener;
+import com.gae.presenter.MainPresenter;
 import com.gae.view.PageControlView;
 import com.gae.view.ScrollLayout;
 import com.gae.view.ScrollLayout.OnScreenChangeListenerDataLoad;
@@ -56,12 +58,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends Activity implements OnUploadProcessListener{
+public class MainActivity extends Activity implements OnUploadProcessListener,IMainAction{
 	private SlidingDrawer mdrawer = null;                                   // 定义一个抽屉控件
 	private TextView center = null;                                         //中间地址
-    private String dbname = "";												//本地数据库名称
-    private List<applyItem> applyList=null;                           		//抽屉应用列表数据
-    private List<applyItem> applygList=null;                          		//主界面应用列表数据
+
     private ScrollLayout mScrollLayout = null;                              //滑动控件
 	private static final float APP_PAGE_SIZE = 9.0f;                  		//每个页面显示应用的个数
 	private PageControlView pageControl = null;                             //分页
@@ -102,40 +102,35 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 	
 	private Bitmap personImage = null;
 	
-	public GpsCityControl GpsCity = null;
+    private MainPresenter helper;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		//获取本地应用数据库名称
-		dbname = EatParams.getInstance().getSDdbname();
-				
+
+        helper = new MainPresenter(this);
+
 		mLayoutInflater = getLayoutInflater();
-		
-		Intent tent = getIntent();
-		String source = tent.getStringExtra("source");
-		if(source != null && source.length() > 0){
-			setLocation();
-		}
-	    
-	    //初始化界面显示
-		initBody();
+
+        initViews();
 	}
+
+    private void initViews(){
+        Intent tent = getIntent();
+        String source = tent.getStringExtra("source");
+        if(source != null && source.length() > 0){
+            setLocation();
+        }
+
+        //初始化界面显示
+        initBody();
+    }
 	
 	private void setLocation(){
-		//定位地址
-		ProgressRing.onProgeress(MainActivity.this, "智点", "正在定位...");
-	    GpsCity = new GpsCityControl(MainActivity.this);
-	    GpsCity.InitGPS();
-	    GpsCity.setGpsCompleteListener(new GpsCompleteListener() {
-			
-			@Override
-			public void onComplete(String str) {
-				if(center != null)center.setText(str);
-				ProgressRing.unProgeress();
-			}
-		});
+		if(helper != null){
+            helper.setLocation();
+        }
 	}
 	
 	//定位之后显示页面内容
@@ -148,44 +143,29 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 		dataLoad = new DataLoading();
 		mScrollLayout = (ScrollLayout)findViewById(R.id.ScrollLayoutTest);
 		myHandler = new MyHandler(this,1);
-	    MyThread m = new MyThread();                       //加载数据
-	    new Thread(m).start();
-	    
+
+	    //加载数据
+	    new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String msglist = "1";
+                Message msg = new Message();
+                Bundle b = new Bundle();// 存放数据
+                b.putString("rmsg", msglist);
+                msg.setData(b);
+                MainActivity.this.myHandler.sendMessage(msg); // 向Handler发送消息,更新UI
+            }
+        }).start();
+
 	    progressDialog = new ProgressDialog(this);
 	}
 
-	//获取功能应用
-	private void getAllApply(){                             
-		applyList=new ArrayList<applyItem>();
-		applygList=new ArrayList<applyItem>();
-		
-		ApplydbHelper applydb=new ApplydbHelper(MainActivity.this); 
-		applydb.open(dbname);                               //打开数据库
-		Cursor cursor=applydb.getAllApplys();               //获取数据
-		
-		while (cursor.moveToNext()) {                       
-			applyItem item=new applyItem();
-			item.setId(cursor.getString(cursor.getColumnIndex(applydb.APPLY_ID)));
-			item.setName(cursor.getString(cursor.getColumnIndex(applydb.APPLY_NAME)));
-			item.setMemo(cursor.getString(cursor.getColumnIndex(applydb.APPLY_MEMO)));
-			item.setGridico(cursor.getString(cursor.getColumnIndex(applydb.APPLY_GRIDICO)));
-			item.setSliico(cursor.getString(cursor.getColumnIndex(applydb.APPLY_SLIICO)));
-			item.setLink(cursor.getString(cursor.getColumnIndex(applydb.APPLY_LINK)));
-			item.setLknum(cursor.getString(cursor.getColumnIndex(applydb.APPLY_LKNUM)));
-			item.setShow(cursor.getString(cursor.getColumnIndex(applydb.APPLY_SHOW)));
-			item.setGroup(cursor.getString(cursor.getColumnIndex(applydb.APPLY_GROUP)));
-			item.setTime(cursor.getString(cursor.getColumnIndex(applydb.APPLY_TIME)));
-			applyList.add(item);
-			if(cursor.getString(cursor.getColumnIndex(applydb.APPLY_SHOW)).equals("Y")){
-				applygList.add(item);
-			}			
-		}
-		applyItem itemg=new applyItem();
-		itemg.setGridico("applyadd");                             //最后一个应用添加的标示
-		applygList.add(itemg);
-		applydb.close();		
-	}
-	
+    private void getAllApply(){
+        if(helper != null){
+            helper.getAllApply();
+        }
+    }
+
 	//顶部图片显示
 	private void topview(){
 		lltopView=(LinearLayout)findViewById(R.id.lltopView);
@@ -301,7 +281,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 		
 		//抽屉组件
 		ListView sligv = (ListView)findViewById(R.id.SlidListView);         
-		sliAdapter=new SliListViewAdapter(MainActivity.this,applyList);
+		sliAdapter=new SliListViewAdapter(MainActivity.this,helper.getApplyList());
 		sligv.setAdapter(sliAdapter);
 		sligv.setOnItemClickListener(new OnItemClickListener() 
         { 
@@ -309,17 +289,17 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
             { 
 
             	Intent intent=new Intent();
-            	if(applyList.get(position).getLink().equals("ShareEatActivity")){
+            	if(helper.getApplyList().get(position).getLink().equals("ShareEatActivity")){
             		ProgressRing.onProgeress(MainActivity.this, "提示", "正在加载手机好友，请稍候....", 4000);
             	}
             	
-            	int lknum = Integer.valueOf(applyList.get(position).getLknum());
-            	applyList.get(position).setLknum( ""+(lknum + 1) );
+            	int lknum = Integer.valueOf(helper.getApplyList().get(position).getLknum());
+                helper.getApplyList().get(position).setLknum( ""+(lknum + 1) );
             	
-            	intent.setClassName(MainActivity.this,"com.gae.eat2013."+applyList.get(position).getLink());
+            	intent.setClassName(MainActivity.this,"com.gae.eat2013."+helper.getApplyList().get(position).getLink());
            	    MainActivity.this.startActivity(intent);
            	    MainActivity.this.finish();
-                Toast.makeText(MainActivity.this, "跳转到" +applyList.get(position).getLink(), Toast.LENGTH_SHORT).show(); 
+                Toast.makeText(MainActivity.this, "跳转到" +helper.getApplyList().get(position).getLink(), Toast.LENGTH_SHORT).show();
             } 
         });
 		
@@ -330,7 +310,10 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 			@Override
 			public void onClick(View v) {
 				ProgressRing.onProgeress(MainActivity.this, "智点", "正在定位...");
-				GpsCity.InitGPS();
+
+                if(helper != null){
+                    helper.InitGPS();
+                }
 			}
 		});
 	}
@@ -367,18 +350,6 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 		});
 
 	}
-	
-	// 更新后台数据
-	class MyThread implements Runnable {
-		public void run() {
-			String msglist = "1";
-			Message msg = new Message();
-			Bundle b = new Bundle();// 存放数据
-			b.putString("rmsg", msglist);
-			msg.setData(b);
-			MainActivity.this.myHandler.sendMessage(msg); // 向Handler发送消息,更新UI
-		}
-	}
 
 	class MyHandler extends Handler {
 		private MainActivity mContext;
@@ -395,11 +366,11 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
 
-			final int pageNo = (int)Math.ceil( applygList.size()/APP_PAGE_SIZE);
+			final int pageNo = (int)Math.ceil( helper.getApplygList().size()/APP_PAGE_SIZE);
 			for (int i = 0; i < pageNo; i++) {
 				GridView appPage = new GridView(mContext);
 				// get the "i" page data
-				gridAdapter=new MainGridViewAdapter(mContext, applygList, i);
+				gridAdapter=new MainGridViewAdapter(mContext, helper.getApplygList(), i);
 				appPage.setAdapter(gridAdapter);
 				appPage.setNumColumns(3);                      //每列的应用个数
 				appPage.setGravity(Gravity.CENTER);
@@ -413,16 +384,16 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 					public void onItemClick(AdapterView<?> arg0,
 							View arg1, int arg2, long arg3) {
 						int num = mScrollLayout.getCurScreen();      //第几页
-						int longdk = applygList.size();
-						if(num*APP_PAGE_SIZE + arg2==applygList.size()-1){    //最后一个应用
+						int longdk = helper.getApplygList().size();
+						if(num*APP_PAGE_SIZE + arg2==helper.getApplygList().size()-1){    //最后一个应用
 							Toast.makeText(MainActivity.this, "添加应用", Toast.LENGTH_SHORT).show();
 							creatAddApply();								
 						}else{
 							Intent intent=new Intent();
-							if(applygList.get((int) (num*APP_PAGE_SIZE+arg2)).getLink().equals("ShareEatActivity")){
+							if(helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getLink().equals("ShareEatActivity")){
 			            		ProgressRing.onProgeress(MainActivity.this, "提示", "正在加载手机好友，请稍候....", 4000);
 			            	}
-							String applink = applygList.get((int) (num*APP_PAGE_SIZE+arg2)).getLink();
+							String applink = helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getLink();
 							appVisitNumChange(applink);
 			            	intent.setClassName(MainActivity.this,"com.gae.eat2013." + applink);
 			           	    MainActivity.this.startActivity(intent);						
@@ -435,24 +406,18 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 					public boolean onItemLongClick(AdapterView<?> arg0,
 							View arg1, final int arg2, long arg3) {
 						final int num=mScrollLayout.getCurScreen();      //第几页
-						if(num*APP_PAGE_SIZE+arg2!=applygList.size()-1){
+						if(num*APP_PAGE_SIZE+arg2!=helper.getApplygList().size()-1){
 							AlertDialog.Builder built=new AlertDialog.Builder(MainActivity.this);
 							built.setTitle("提示");
-							built.setMessage("您确定要删除《"+applygList.get((int) (num*APP_PAGE_SIZE+arg2)).getName()+"》桌面应用");
+							built.setMessage("您确定要删除《"+helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getName()+"》桌面应用");
 							
 							built.setNeutralButton("确认",new DialogInterface.OnClickListener() {
 								
 								@Override
 								public void onClick(DialogInterface dialog, int which) {
-									ApplydbHelper applydb=new ApplydbHelper(MainActivity.this); 
-									applydb.open(dbname);
-									applydb.update(applygList.get((int) (num*APP_PAGE_SIZE+arg2)).getId().trim(),"N");
-									Intent intent = new Intent();
-									intent.setClass(MainActivity.this, MainActivity.class);  //刷新界面
-									startActivity(intent);
-									MainActivity.this.finish();
-									dialog.dismiss();
-									applydb.close();
+									helper.deletePlugin((int) (num*APP_PAGE_SIZE+arg2));
+                                    finish();
+                                    dialog.dismiss();
 								}
 							});
 							
@@ -480,15 +445,16 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 		}
 	}
 
-	//统计应用访问次数
+    @Override
+    public void updateCityView(String city) {
+        if(center != null)center.setText(city);
+    }
+
+    //统计应用访问次数
 	private void appVisitNumChange(String appname){
-		for(int i = 0,j = applyList.size();i<j;i++){
-			if(applyList.get(i).getLink().equals(appname)){
-				int lknum = Integer.valueOf(applyList.get(i).getLknum());
-            	applyList.get(i).setLknum( ""+(lknum + 1) );
-				break;
-			}
-		}
+		if (helper != null){
+            helper.appVisitNumChange(appname);
+        }
 	}
 	
 	//添加桌面应用
@@ -497,28 +463,28 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 		View layout = inflater.inflate(R.layout.apply_adddialog, null);
 		Button dele=(Button)layout.findViewById(R.id.dele);
 		ListView dialoglist=(ListView)layout.findViewById(R.id.dialogListView);
-		final SliListViewAdapter Adapter=new SliListViewAdapter(MainActivity.this,applyList);
+		final SliListViewAdapter Adapter=new SliListViewAdapter(MainActivity.this,helper.getApplyList());
 		dialoglist.setAdapter(Adapter);
-		final ApplydbHelper applydb=new ApplydbHelper(MainActivity.this); 
-		applydb.open(dbname);                               //打开数据库
 		dialoglist.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
 
-				applydb.update(applyList.get(arg2).getId().trim(),"Y");
-				Toast.makeText(MainActivity.this,
-						"添加" + applyList.get(arg2).getName(), Toast.LENGTH_SHORT).show();
+                helper.updatePlugin(arg2);
 
-				applyDialog.dismiss();
-				Intent intent = new Intent();
-				intent.setClass(MainActivity.this, MainActivity.class);  //刷新界面
-				startActivity(intent);
-				finish();
+                Toast.makeText(MainActivity.this,
+                        "添加" + helper.getApplyList().get(arg2).getName(), Toast.LENGTH_SHORT).show();
 
-			}
-		});
+                applyDialog.dismiss();
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, MainActivity.class);  //刷新界面
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
 		dele.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -526,7 +492,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 				applyDialog.dismiss();
 			}
 		});
-		applydb.close();
+
 		applyDialog = new Dialog(this);
 		applyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		applyDialog.setContentView(layout);
@@ -562,8 +528,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 	
 	@Override
 	protected void onDestroy() {
-		if(GpsCity != null)
-			GpsCity.stopListener();//停止监听
+		helper.removeGPSListener();
 		super.onDestroy();
 	}
 	
@@ -597,7 +562,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 		msg.obj = message;
 		handler.sendMessage(msg);
 	}
-	
+
 	//上传文件
 	private void toUploadFile()
 	{
@@ -609,7 +574,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 		String fileKey = "uploadedfile";
 		UploadUtil uploadUtil = UploadUtil.getInstance();;
 		uploadUtil.setOnUploadProcessListener(this);  //设置监听器监听上传状态
-		
+
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("orderId", "11111");
 		uploadUtil.uploadFile( picPath,fileKey, requestURL,params);
@@ -622,7 +587,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 			case TO_UPLOAD_FILE:
 				toUploadFile();
 				break;
-			
+
 			case UPLOAD_INIT_PROCESS:
 				progressDialog.setProgress(msg.arg1);
 				break;
@@ -638,7 +603,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener{
 			}
 			super.handleMessage(msg);
 		}
-		
+
 	};
 
 	@Override

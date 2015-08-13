@@ -7,12 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.widget.TextView;
 
 import com.gae.UInterface.IInitAction;
 import com.gae.basic.MyApplication;
 import com.gae.basic.UpdateService;
-import com.gae.eat2013.R;
 import com.gae.entity.EatParams;
 import com.sd.core.network.async.AsyncTaskManager;
 
