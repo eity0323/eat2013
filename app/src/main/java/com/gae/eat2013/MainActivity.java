@@ -12,7 +12,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -43,65 +42,65 @@ import com.gae.adapter.SliListViewAdapter;
 import com.gae.basic.ProgressRing;
 import com.gae.basic.UploadUtil;
 import com.gae.basic.UploadUtil.OnUploadProcessListener;
-import com.gae.control.GpsCityControl;
-import com.gae.dbHelper.ApplydbHelper;
 import com.gae.entity.EatParams;
-import com.gae.entity.applyItem;
-import com.gae.listener.GpsCompleteListener;
 import com.gae.presenter.MainPresenter;
 import com.gae.view.PageControlView;
 import com.gae.view.ScrollLayout;
 import com.gae.view.ScrollLayout.OnScreenChangeListenerDataLoad;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends Activity implements OnUploadProcessListener,IMainAction{
-	private SlidingDrawer mdrawer = null;                                   // 定义一个抽屉控件
-	private TextView center = null;                                         //中间地址
+    /**
+     * 去上传文件
+     */
+    protected static final int TO_UPLOAD_FILE = 1;
+    /**
+     * 上传文件响应
+     */
+    protected static final int UPLOAD_FILE_DONE = 2;  //
+    /**
+     * 选择文件
+     */
+    public static final int TO_SELECT_PHOTO = 3;
+    /**
+     * 上传初始化
+     */
+    private static final int UPLOAD_INIT_PROCESS = 4;
+    /**
+     * 上传中
+     */
+    private static final int UPLOAD_IN_PROCESS = 5;
 
+    /*初始化app列表页*/
+    private static final int INIT_APP_FRAGMENT = 6;
+
+    private static String requestURL = "http://10.168.2.168/mbpic.php";
+
+    private static final float APP_PAGE_SIZE = 9.0f;                  		//每个页面显示应用的个数
+
+    private SlidingDrawer mdrawer = null;                                   // 定义一个抽屉控件
+    private TextView center = null;                                         //中间地址
     private ScrollLayout mScrollLayout = null;                              //滑动控件
-	private static final float APP_PAGE_SIZE = 9.0f;                  		//每个页面显示应用的个数
+    private DataLoading dataLoad = null;                                    //数据加载
+    private Dialog applyDialog = null;                                      //添加应用对话框
+    private SliListViewAdapter sliAdapter = null;                           //抽屉适配器
+    private MainGridViewAdapter gridAdapter = null;                         //桌面应用适配器
+    private LayoutInflater mLayoutInflater = null;							//
+
+    private LinearLayout lltopView = null;									//广告/个人信息栏
+
 	private PageControlView pageControl = null;                             //分页
+
+    private ProgressDialog progressDialog;
+    private Bitmap personImage = null;
+
 	private MyHandler myHandler = null;                                     //线程
+
 	private int atpage=0;                                              		//页码
-	private DataLoading dataLoad = null;                                    //数据加载
-	private Dialog applyDialog = null;                                      //添加应用对话框 
-	private SliListViewAdapter sliAdapter = null;                           //抽屉适配器
-	private MainGridViewAdapter gridAdapter = null;                         //桌面应用适配器
-	private LayoutInflater mLayoutInflater = null;							//
-	private LinearLayout lltopView = null;									//广告/个人信息栏
-	
-	/**
-	 * 去上传文件
-	 */
-	protected static final int TO_UPLOAD_FILE = 1;  
-	/**
-	 * 上传文件响应
-	 */
-	protected static final int UPLOAD_FILE_DONE = 2;  //
-	/**
-	 * 选择文件
-	 */
-	public static final int TO_SELECT_PHOTO = 3;
-	/**
-	 * 上传初始化
-	 */
-	private static final int UPLOAD_INIT_PROCESS = 4;
-	/**
-	 * 上传中
-	 */
-	private static final int UPLOAD_IN_PROCESS = 5;
-	
-	private static String requestURL = "http://10.168.2.168/mbpic.php";
-	
-	private String picPath = null;
-	private ProgressDialog progressDialog;
-	
-	private Bitmap personImage = null;
-	
+    private String picPath = null;
+
     private MainPresenter helper;
 
 	@Override
@@ -110,8 +109,9 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
 		setContentView(R.layout.activity_main);
 
         helper = new MainPresenter(this);
-
 		mLayoutInflater = getLayoutInflater();
+        myHandler = new MyHandler(this);
+        progressDialog = new ProgressDialog(this);
 
         initViews();
 	}
@@ -124,7 +124,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
         }
 
         //初始化界面显示
-        initBody();
+        initLayout();
     }
 	
 	private void setLocation(){
@@ -134,31 +134,93 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
 	}
 	
 	//定位之后显示页面内容
-	private void initBody(){
-		getAllApply();										//获取应用数据
-		topview();											//初始化广告栏显示
-		findview();                       					//界面显示
+	private void initLayout(){
+		//初始化广告栏显示
+        lltopView=(LinearLayout)findViewById(R.id.lltopView);
+        lltopView.removeAllViews();
+
+        //界面显示
+        mdrawer = (SlidingDrawer) findViewById(R.id.slidingdrawer);
+        center = (TextView) findViewById(R.id.high_rise);
+
+        AdvertiseLayout();
+
+        //当前地址
+        String localpos = EatParams.getInstance().getGpsAddr();
+        if(localpos == null || localpos.length() <= 0){
+            localpos = "未获取到您的位置";
+        }
+        center.setText(localpos);
+
+        //抽屉组件
+        ListView sligv = (ListView)findViewById(R.id.SlidListView);
+        sliAdapter=new SliListViewAdapter(MainActivity.this,helper.getApplyList());
+        sligv.setAdapter(sliAdapter);
+        sligv.setOnItemClickListener(itemClickListener);
+
+        //切换位置
+        Button changCity=(Button)findViewById(R.id.shop_top_right);
+        changCity.setOnClickListener(clickListener);
+
 		drawerlistener();                                   //抽屉响应事件
 		
 		dataLoad = new DataLoading();
 		mScrollLayout = (ScrollLayout)findViewById(R.id.ScrollLayoutTest);
-		myHandler = new MyHandler(this,1);
 
-	    //加载数据
-	    new Thread(new Runnable() {
+        initial();
+	}
+
+    private void initial(){
+        getAllApply();										//获取应用数据
+        initAppFragment();
+    }
+
+    private void initAppFragment(){
+        //加载数据
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                String msglist = "1";
-                Message msg = new Message();
-                Bundle b = new Bundle();// 存放数据
-                b.putString("rmsg", msglist);
-                msg.setData(b);
-                MainActivity.this.myHandler.sendMessage(msg); // 向Handler发送消息,更新UI
+                myHandler.sendEmptyMessage(INIT_APP_FRAGMENT); // 向Handler发送消息,更新UI
             }
         }).start();
+    }
 
-	    progressDialog = new ProgressDialog(this);
-	}
+    /* *
+     * 广告栏显示
+     * */
+    private void AdvertiseLayout(){
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        View infoView;
+        if(EatParams.getInstance().getSession().length()>0){				//登录状态
+            infoView = mLayoutInflater.inflate(R.layout.pernsoninfo, null);
+            ImageView hicon = (ImageView)infoView.findViewById(R.id.headIcom);
+            if(personImage != null){
+                hicon.setImageBitmap(personImage);
+            }
+            hicon.setOnClickListener(clickListener);
+
+            ImageView ivedit = (ImageView)infoView.findViewById(R.id.user_edit);
+            ivedit.setOnClickListener(clickListener);
+
+            TextView name=(TextView)infoView.findViewById(R.id.usename);
+            name.setText(EatParams.getInstance().getUsename());
+
+            TextView addr=(TextView)infoView.findViewById(R.id.addr);
+            addr.setText("地址："+EatParams.getInstance().getAddr());
+        }else{																//未登录状态
+            infoView = mLayoutInflater.inflate(R.layout.adinfo_main, null);
+            ImageView hicon = (ImageView)infoView.findViewById(R.id.headIcom);
+            hicon.setOnClickListener(clickListener);
+
+            TextView ivregister = (TextView)infoView.findViewById(R.id.nouser_register);
+            ivregister.setOnClickListener(clickListener);
+
+            TextView ivlogin = (TextView)infoView.findViewById(R.id.nouser_login);
+            ivlogin.setOnClickListener(clickListener);
+
+        }
+        lltopView.addView(infoView,params);
+    }
 
     private void getAllApply(){
         if(helper != null){
@@ -166,79 +228,61 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
         }
     }
 
-	//顶部图片显示
-	private void topview(){
-		lltopView=(LinearLayout)findViewById(R.id.lltopView);
-		lltopView.removeAllViews();
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-		if(EatParams.getInstance().getSession().length()>0){				//登录状态
-			View pernsonView = mLayoutInflater.inflate(R.layout.pernsoninfo, null);
-			ImageView hicon = (ImageView)pernsonView.findViewById(R.id.headIcom);
-			if(personImage != null){
-				hicon.setImageBitmap(personImage);
-			}
-			hicon.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					takePhoto();
-				}
-			});
-			ImageView ivedit = (ImageView)pernsonView.findViewById(R.id.user_edit);
-			ivedit.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					//修改个人信息
-					Intent lintent = new Intent();
-					lintent.setClass(getApplicationContext(), PersonInfoActivity.class);
-					startActivity(lintent);
-				}
-			});
-			TextView name=(TextView)pernsonView.findViewById(R.id.usename);
-			TextView addr=(TextView)pernsonView.findViewById(R.id.addr);
-			name.setText(EatParams.getInstance().getUsename());
-			addr.setText("地址："+EatParams.getInstance().getAddr());			
-			lltopView.addView(pernsonView,params);
-		}else{																//未登录状态
-			View adView = mLayoutInflater.inflate(R.layout.adinfo_main, null);
-			ImageView hicon = (ImageView)adView.findViewById(R.id.headIcom);
-			hicon.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					//登录
-					Intent lintent = new Intent();
-					lintent.setClass(getApplicationContext(), SetLoginActivity.class);
-					startActivity(lintent);
-				}
-			});
-			
-			TextView ivregister = (TextView)adView.findViewById(R.id.nouser_register);
-			ivregister.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					Intent lintent = new Intent();
-					lintent.setClass(getApplicationContext(), RegisterActivity.class);
-					startActivity(lintent);
-				}
-			});
-			
-			TextView ivlogin = (TextView)adView.findViewById(R.id.nouser_login);
-			ivlogin.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					Intent lintent = new Intent();
-					lintent.setClass(getApplicationContext(), SetLoginActivity.class);
-					startActivity(lintent);
-				}
-			});
-			
-			lltopView.addView(adView,params);
-		}
-	}
+    private OnItemClickListener itemClickListener = new OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            Intent intent=new Intent();
+            if(helper.getApplyList().get(position).getLink().equals("ShareEatActivity")){
+                ProgressRing.onProgeress(MainActivity.this, "提示", "正在加载手机好友，请稍候....", 4000);
+            }
+
+            int lknum = Integer.valueOf(helper.getApplyList().get(position).getLknum());
+            helper.getApplyList().get(position).setLknum( ""+(lknum + 1) );
+
+            intent.setClassName(MainActivity.this,"com.gae.eat2013."+helper.getApplyList().get(position).getLink());
+            MainActivity.this.startActivity(intent);
+            MainActivity.this.finish();
+            Toast.makeText(MainActivity.this, "跳转到" +helper.getApplyList().get(position).getLink(), Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    private OnClickListener clickListener = new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.shop_top_right:
+                    ProgressRing.onProgeress(MainActivity.this, "智点", "正在定位...");
+
+                    if(helper != null){
+                        helper.InitGPS();
+                    }
+                    break;
+                case R.id.nouser_login:
+                    go2SignalActivity(SetLoginActivity.class);
+                    break;
+                case R.id.nouser_register:
+                    go2SignalActivity( RegisterActivity.class);
+                    break;
+                case R.id.headIcom:
+                    //TODO 判断是否登录
+                    //已登录
+                    takePhoto();
+                    //未登录
+                    go2SignalActivity( SetLoginActivity.class);
+                    break;
+                case R.id.user_edit:
+                    //修改个人信息
+                    go2SignalActivity(PersonInfoActivity.class);
+                    break;
+            }
+        }
+    };
+
+    private void go2SignalActivity(Class<?> activity){
+        Intent lintent = new Intent();
+        lintent.setClass(getApplicationContext(), activity);
+        startActivity(lintent);
+    }
 
 	//上传图片
 	private void takePhoto(){
@@ -265,57 +309,6 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
 			}
 		}
 		super.onActivityResult(requestCode, resultCode, data);
-	}
-	
-	//初始化列表组件及抽屉组件
-	private void findview() {		
-		mdrawer = (SlidingDrawer) findViewById(R.id.slidingdrawer);
-		center = (TextView) findViewById(R.id.high_rise);
-		
-		//当前地址
-		String localpos = EatParams.getInstance().getGpsAddr();
-		if(localpos == null || localpos.length() <= 0){
-			localpos = "未获取到您的位置";
-		}
-		center.setText(localpos);            
-		
-		//抽屉组件
-		ListView sligv = (ListView)findViewById(R.id.SlidListView);         
-		sliAdapter=new SliListViewAdapter(MainActivity.this,helper.getApplyList());
-		sligv.setAdapter(sliAdapter);
-		sligv.setOnItemClickListener(new OnItemClickListener() 
-        { 
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) 
-            { 
-
-            	Intent intent=new Intent();
-            	if(helper.getApplyList().get(position).getLink().equals("ShareEatActivity")){
-            		ProgressRing.onProgeress(MainActivity.this, "提示", "正在加载手机好友，请稍候....", 4000);
-            	}
-            	
-            	int lknum = Integer.valueOf(helper.getApplyList().get(position).getLknum());
-                helper.getApplyList().get(position).setLknum( ""+(lknum + 1) );
-            	
-            	intent.setClassName(MainActivity.this,"com.gae.eat2013."+helper.getApplyList().get(position).getLink());
-           	    MainActivity.this.startActivity(intent);
-           	    MainActivity.this.finish();
-                Toast.makeText(MainActivity.this, "跳转到" +helper.getApplyList().get(position).getLink(), Toast.LENGTH_SHORT).show();
-            } 
-        });
-		
-		//切换位置
-		Button changCity=(Button)findViewById(R.id.shop_top_right);
-		changCity.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				ProgressRing.onProgeress(MainActivity.this, "智点", "正在定位...");
-
-                if(helper != null){
-                    helper.InitGPS();
-                }
-			}
-		});
 	}
 
 	private void drawerlistener() {
@@ -353,7 +346,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
 
 	class MyHandler extends Handler {
 		private MainActivity mContext;
-		public MyHandler(Context conn,int a) {
+		public MyHandler(Context conn) {
 			mContext = (MainActivity)conn;
 		}
 
@@ -368,73 +361,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
 
 			final int pageNo = (int)Math.ceil( helper.getApplygList().size()/APP_PAGE_SIZE);
 			for (int i = 0; i < pageNo; i++) {
-				GridView appPage = new GridView(mContext);
-				// get the "i" page data
-				gridAdapter=new MainGridViewAdapter(mContext, helper.getApplygList(), i);
-				appPage.setAdapter(gridAdapter);
-				appPage.setNumColumns(3);                      //每列的应用个数
-				appPage.setGravity(Gravity.CENTER);
-				appPage.setPadding(0, 20, 0, 0);
-				appPage.setHorizontalSpacing(10);
-				appPage.setVerticalSpacing(30);
-				
-				appPage.setOnItemClickListener(new OnItemClickListener() {
-	
-					@Override
-					public void onItemClick(AdapterView<?> arg0,
-							View arg1, int arg2, long arg3) {
-						int num = mScrollLayout.getCurScreen();      //第几页
-						int longdk = helper.getApplygList().size();
-						if(num*APP_PAGE_SIZE + arg2==helper.getApplygList().size()-1){    //最后一个应用
-							Toast.makeText(MainActivity.this, "添加应用", Toast.LENGTH_SHORT).show();
-							creatAddApply();								
-						}else{
-							Intent intent=new Intent();
-							if(helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getLink().equals("ShareEatActivity")){
-			            		ProgressRing.onProgeress(MainActivity.this, "提示", "正在加载手机好友，请稍候....", 4000);
-			            	}
-							String applink = helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getLink();
-							appVisitNumChange(applink);
-			            	intent.setClassName(MainActivity.this,"com.gae.eat2013." + applink);
-			           	    MainActivity.this.startActivity(intent);						
-						}
-					}
-				});
-				appPage.setOnItemLongClickListener(new OnItemLongClickListener() {      //长按删除应用
-	
-					@Override
-					public boolean onItemLongClick(AdapterView<?> arg0,
-							View arg1, final int arg2, long arg3) {
-						final int num=mScrollLayout.getCurScreen();      //第几页
-						if(num*APP_PAGE_SIZE+arg2!=helper.getApplygList().size()-1){
-							AlertDialog.Builder built=new AlertDialog.Builder(MainActivity.this);
-							built.setTitle("提示");
-							built.setMessage("您确定要删除《"+helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getName()+"》桌面应用");
-							
-							built.setNeutralButton("确认",new DialogInterface.OnClickListener() {
-								
-								@Override
-								public void onClick(DialogInterface dialog, int which) {
-									helper.deletePlugin((int) (num*APP_PAGE_SIZE+arg2));
-                                    finish();
-                                    dialog.dismiss();
-								}
-							});
-							
-							built.setNegativeButton("取消",new DialogInterface.OnClickListener() {
-								
-								@Override
-								public void onClick(DialogInterface dialog, int which) {
-									dialog.dismiss();
-								}
-							});
-							Dialog dialog=built.create();
-							dialog.show();
-						}
-						return false;
-					}
-				});
-				mScrollLayout.addView(appPage);
+                mScrollLayout.addView( createAppFragment(mContext,i) );
 			}
 			//加载分页
 			pageControl = (PageControlView) findViewById(R.id.pageControl);
@@ -444,6 +371,78 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
 			
 		}
 	}
+
+    //创建app滑动页
+    private GridView createAppFragment(Context mContext, int i){
+        GridView appPage = new GridView(mContext);
+        // get the "i" page data
+        gridAdapter=new MainGridViewAdapter(mContext, helper.getApplygList(), i);
+        appPage.setAdapter(gridAdapter);
+        appPage.setNumColumns(3);                      //每列的应用个数
+        appPage.setGravity(Gravity.CENTER);
+        appPage.setPadding(0, 20, 0, 0);
+        appPage.setHorizontalSpacing(10);
+        appPage.setVerticalSpacing(30);
+
+        appPage.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0,
+                                    View arg1, int arg2, long arg3) {
+                int num = mScrollLayout.getCurScreen();      //第几页
+                int longdk = helper.getApplygList().size();
+                if(num*APP_PAGE_SIZE + arg2==helper.getApplygList().size()-1){    //最后一个应用
+                    Toast.makeText(MainActivity.this, "添加应用", Toast.LENGTH_SHORT).show();
+                    creatAddApply();
+                }else{
+                    Intent intent=new Intent();
+                    if(helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getLink().equals("ShareEatActivity")){
+                        ProgressRing.onProgeress(MainActivity.this, "提示", "正在加载手机好友，请稍候....", 4000);
+                    }
+                    String applink = helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getLink();
+                    appVisitNumChange(applink);
+                    intent.setClassName(MainActivity.this,"com.gae.eat2013." + applink);
+                    MainActivity.this.startActivity(intent);
+                }
+            }
+        });
+        appPage.setOnItemLongClickListener(new OnItemLongClickListener() {      //长按删除应用
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0,
+                                           View arg1, final int arg2, long arg3) {
+                final int num=mScrollLayout.getCurScreen();      //第几页
+                if(num*APP_PAGE_SIZE+arg2!=helper.getApplygList().size()-1){
+                    AlertDialog.Builder built=new AlertDialog.Builder(MainActivity.this);
+                    built.setTitle("提示");
+                    built.setMessage("您确定要删除《"+helper.getApplygList().get((int) (num * APP_PAGE_SIZE + arg2)).getName()+"》桌面应用");
+
+                    built.setNeutralButton("确认",new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            helper.deletePlugin((int) (num*APP_PAGE_SIZE+arg2));
+                            finish();
+                            dialog.dismiss();
+                        }
+                    });
+
+                    built.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    Dialog dialog=built.create();
+                    dialog.show();
+                }
+                return false;
+            }
+        });
+
+        return  appPage;
+    }
 
     @Override
     public void updateCityView(String city) {
@@ -462,6 +461,7 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
 		LayoutInflater inflater = getLayoutInflater();
 		View layout = inflater.inflate(R.layout.apply_adddialog, null);
 		Button dele=(Button)layout.findViewById(R.id.dele);
+
 		ListView dialoglist=(ListView)layout.findViewById(R.id.dialogListView);
 		final SliListViewAdapter Adapter=new SliListViewAdapter(MainActivity.this,helper.getApplyList());
 		dialoglist.setAdapter(Adapter);
@@ -523,7 +523,6 @@ public class MainActivity extends Activity implements OnUploadProcessListener,IM
 	@Override
 	protected void onResume() {
 		super.onResume();
-		topview();
 	}
 	
 	@Override
