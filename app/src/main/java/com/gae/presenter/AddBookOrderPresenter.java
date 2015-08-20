@@ -2,7 +2,7 @@ package com.gae.presenter;
 
 import android.content.Context;
 
-import com.gae.UInterface.IAddBookOrder;
+import com.gae.UInterface.IAddBookOrderAction;
 
 /**
  * 添加预定订单ui管理器
@@ -10,11 +10,11 @@ import com.gae.UInterface.IAddBookOrder;
  */
 public class AddBookOrderPresenter extends BasePresenter{
 
-    private IAddBookOrder impl;
+    private IAddBookOrderAction impl;
     private Context mcontext;
 
     public AddBookOrderPresenter(Context context){
-        impl = (IAddBookOrder) context;
+        impl = (IAddBookOrderAction) context;
         mcontext = context;
     }
 

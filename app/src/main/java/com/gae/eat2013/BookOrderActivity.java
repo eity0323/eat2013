@@ -26,7 +26,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -104,7 +103,7 @@ public class BookOrderActivity extends Activity{
 			            	intent.putExtra("price", booklist.get(position).getPrice());
 			            	intent.putExtra("id", booklist.get(position).getId());
 			            	
-			            	intent.setClass(BookOrderActivity.this, AddBookOrderActivity.class);
+			            	intent.setClass(BookOrderActivity.this, AddBookOrderActionActivity.class);
 			    			startActivity(intent);
 						}
 					});
@@ -136,7 +135,7 @@ public class BookOrderActivity extends Activity{
 		public void onClick(View v) {
 			Intent intent = new Intent();
 			intent.putExtra("type", "add");
-			intent.setClass(BookOrderActivity.this, AddBookOrderActivity.class);
+			intent.setClass(BookOrderActivity.this, AddBookOrderActionActivity.class);
 			startActivity(intent);
 		}		
 	}

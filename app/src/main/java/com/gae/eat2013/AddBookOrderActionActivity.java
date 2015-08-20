@@ -13,7 +13,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.DatePicker;
@@ -22,7 +21,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.gae.UInterface.IAddBookOrder;
+import com.gae.UInterface.IAddBookOrderAction;
 import com.gae.entity.BookInfo;
 import com.gae.entity.EatParams;
 import com.gae.presenter.AddBookOrderPresenter;
@@ -34,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 //新增、修改个人订单
-public class AddBookOrderActivity extends Activity implements IAddBookOrder{
+public class AddBookOrderActionActivity extends Activity implements IAddBookOrderAction {
 	private String areaDbname = "";					//城市数据库名称
 	private String urlServer = "";					//服务器路径
 	private String url_class = "";					//请求数据路径
@@ -169,19 +168,19 @@ public class AddBookOrderActivity extends Activity implements IAddBookOrder{
 		}
 		
 		if(TextUtils.isEmpty(usermb)){
-			Toast.makeText(AddBookOrderActivity.this, "没有电话就联系不到你哟！", Toast.LENGTH_SHORT).show();
+			Toast.makeText(AddBookOrderActionActivity.this, "没有电话就联系不到你哟！", Toast.LENGTH_SHORT).show();
 			return;	
 		}else if(TextUtils.isEmpty(usertime)){
-			Toast.makeText(AddBookOrderActivity.this, "没有时间就会送得比较晚哦！", Toast.LENGTH_SHORT).show();
+			Toast.makeText(AddBookOrderActionActivity.this, "没有时间就会送得比较晚哦！", Toast.LENGTH_SHORT).show();
 			return;
 		}else if(curDate.after(nowtime)){
-			Toast.makeText(AddBookOrderActivity.this, "送餐时间早于当前时间，您是要穿越吗", Toast.LENGTH_SHORT).show();
+			Toast.makeText(AddBookOrderActionActivity.this, "送餐时间早于当前时间，您是要穿越吗", Toast.LENGTH_SHORT).show();
 			return;
 		}else if(TextUtils.isEmpty(useraddr)){
-			Toast.makeText(AddBookOrderActivity.this, "没有地址餐会送不到的哟", Toast.LENGTH_SHORT).show();
+			Toast.makeText(AddBookOrderActionActivity.this, "没有地址餐会送不到的哟", Toast.LENGTH_SHORT).show();
 			return;
 		}else if(TextUtils.isEmpty(userfoodinfo)){
-			Toast.makeText(AddBookOrderActivity.this, "说说您想吃啥呗！", Toast.LENGTH_SHORT).show();
+			Toast.makeText(AddBookOrderActionActivity.this, "说说您想吃啥呗！", Toast.LENGTH_SHORT).show();
 			return;
 		}
 
@@ -218,7 +217,7 @@ public class AddBookOrderActivity extends Activity implements IAddBookOrder{
 		xtptime.setIs24HourView(true);
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(
-				AddBookOrderActivity.this);
+				AddBookOrderActionActivity.this);
 		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 
 			@Override

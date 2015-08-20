@@ -5,41 +5,24 @@ package com.gae.eat2013;
  * description:发布星级菜谱
  * */
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gae.UInterface.IAddCook;
-import com.gae.basic.GetHttp;
+import com.gae.UInterface.IAddCookAction;
 import com.gae.entity.CookItem;
 import com.gae.entity.EatParams;
 import com.gae.presenter.AddCookPresenter;
 
-public class AddCookActivity extends Activity implements IAddCook{
+public class AddCookActivity extends Activity implements IAddCookAction {
 	private String urlServer = "";				//服务器路径
 	private String areaDbname = "";				//城市数据库名称
 	private String url_class = "";				//请求数据路径
@@ -65,6 +48,8 @@ public class AddCookActivity extends Activity implements IAddCook{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addcook_activity);
+
+        helper = new AddCookPresenter(this);
 		
 		urlServer = EatParams.getInstance().getUrlServer();
 		areaDbname = EatParams.getInstance().areaDbName;

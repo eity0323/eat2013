@@ -2,7 +2,7 @@ package com.gae.presenter;
 
 import android.content.Context;
 
-import com.gae.UInterface.IAddCook;
+import com.gae.UInterface.IAddCookAction;
 
 /**
  * 提交星级菜谱UI管理器
@@ -10,11 +10,11 @@ import com.gae.UInterface.IAddCook;
  */
 public class AddCookPresenter extends BasePresenter{
 
-    private IAddCook impl;
+    private IAddCookAction impl;
     private Context mcontext;
 
     public AddCookPresenter(Context context){
-        impl = (IAddCook) context;
+        impl = (IAddCookAction) context;
         mcontext =  context;
     }
 
