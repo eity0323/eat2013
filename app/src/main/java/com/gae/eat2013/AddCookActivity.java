@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,11 +33,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gae.UInterface.IAddCook;
 import com.gae.basic.GetHttp;
 import com.gae.entity.CookItem;
 import com.gae.entity.EatParams;
+import com.gae.presenter.AddCookPresenter;
 
-public class AddCookActivity extends Activity {
+public class AddCookActivity extends Activity implements IAddCook{
 	private String urlServer = "";				//服务器路径
 	private String areaDbname = "";				//城市数据库名称
 	private String url_class = "";				//请求数据路径
@@ -55,8 +58,8 @@ public class AddCookActivity extends Activity {
 	private TextView txt6;
 	private TextView txt7; 
 	private TextView txt8;
-	private ImageView img1;
-	private ImageView img2;
+
+    private AddCookPresenter helper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +79,7 @@ public class AddCookActivity extends Activity {
 		txt6 = (TextView)findViewById(R.id.main);
 		txt7 = (TextView)findViewById(R.id.sub);
 		txt8 = (TextView)findViewById(R.id.step);
-		//img1 = (ImageView)findViewById(R.id.upic);
-		//img2 = (ImageView)findViewById(R.id.dico);
-		
+
 		//返回按钮事件
 		back = (Button)findViewById(R.id.backbtn);
 		back.setOnClickListener(new OnClickListener() {
@@ -114,37 +115,30 @@ public class AddCookActivity extends Activity {
 		String ico = "";
 		String dico = "";
 		
-//		if(ico.equals("") || ico == null){
-//			Toast.makeText(AddCookActivity.this, "图片不能为空！", 2000).show();
-//			return;	
-//		}else 
-		if(vname.equals("") || vname == null){
+		if(TextUtils.isEmpty(vname)){
 			Toast.makeText(AddCookActivity.this, "菜名不能为空！", Toast.LENGTH_SHORT).show();
 			return;	
-		}else if(method.equals("") || method == null){
+		}else if(TextUtils.isEmpty(method)){
 			Toast.makeText(AddCookActivity.this, "做法不能为空！", Toast.LENGTH_SHORT).show();
 			return;	
-		}else if(taste.equals("") || taste == null){
+		}else if(TextUtils.isEmpty(taste)){
 			Toast.makeText(AddCookActivity.this, "口味不能为空！", Toast.LENGTH_SHORT).show();
 			return;	
-		}else if(diffic.equals("") || diffic == null){
+		}else if(TextUtils.isEmpty(diffic)){
 			Toast.makeText(AddCookActivity.this, "难度不能为空！", Toast.LENGTH_SHORT).show();
 			return;	
-		}else if(time.equals("") || time == null){
+		}else if(TextUtils.isEmpty(time)){
 			Toast.makeText(AddCookActivity.this, "时间不能为空！", Toast.LENGTH_SHORT).show();
 			return;	
-		}else if(main.equals("") || main == null){
+		}else if(TextUtils.isEmpty(main)){
 			Toast.makeText(AddCookActivity.this, "主料不能为空！", Toast.LENGTH_SHORT).show();
 			return;	
-		}else if(sub.equals("") || sub == null){
+		}else if(TextUtils.isEmpty(sub)){
 			Toast.makeText(AddCookActivity.this, "辅料不能为空！", Toast.LENGTH_SHORT).show();
 			return;	
-		}else if(detail.equals("") || detail == null){
+		}else if(TextUtils.isEmpty(detail)){
 			Toast.makeText(AddCookActivity.this, "步骤不能为空！", Toast.LENGTH_SHORT).show();
 			return;	
-//		}else if(dico.equals("") || dico == null){
-//			Toast.makeText(AddCookActivity.this, "图片不能为空！", 2000).show();
-//			return;	
 		}
 		
 		url_class = urlServer+ "?argv={webdm,-DB,"+areaDbname+",-sid"+sid+",-ADD-BCMENU,"
@@ -159,146 +153,8 @@ public class AddCookActivity extends Activity {
 					+URLEncoder.encode(ico)+"','"
 					+URLEncoder.encode(dico)
 					+"'}";
-		Runnable runnable = new Runnable() {
-			@Override
-			public void run() {
-				saxParseXMLCook(url_class);
-				handler.sendEmptyMessage(0);
-			}
-		};
-		Thread thread = new Thread(runnable);
-		thread.start();
+
+        if (helper != null)
+            helper.requestCook();
 	}
-	/**
-	 * HTTP连接，SAX解析XML
-	 * 
-	 * @param url
-	 * 
-	 */
-	private void saxParseXMLCook(String url) {
-		SAXParserFactory factory = SAXParserFactory.newInstance();
-		SAXParser parser;
-		try {
-			GetHttp getHttp = new GetHttp();
-			String html = getHttp.contentToString(url, "utf-8");
-			ByteArrayInputStream is = new ByteArrayInputStream(html.getBytes());
-			cooklist = new ArrayList<CookItem>();
-			parser = factory.newSAXParser();
-			SaxParseHandlerCook pandler = new SaxParseHandlerCook();
-			parser.parse(is, pandler);
-
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * SAX解析XML的处理机制
-	 * 
-	 */
-	class SaxParseHandlerCook extends DefaultHandler {
-		String str = null;
-		int i = 0;
-
-		/**
-		 * XML开始时，执行此函数
-		 */
-		@Override
-		public void startDocument() throws SAXException {
-			super.endDocument();
-		}
-
-		/**
-		 * XML结束时，执行此函数
-		 */
-		@Override
-		public void endDocument() throws SAXException {
-			// Log.e("TEST", "endDocument");
-		}
-
-		/**
-		 * XML标签开始时，执行此函数，读取标签名称，和标签内的属性
-		 */
-		@Override
-		public void startElement(String uri, String localName, String qName,
-				Attributes attributes) throws SAXException {
-			if ("r".equals(localName)) {
-				CookItem cook = new CookItem();
-				cook.setCname(attributes.getValue("VNAME"));
-				cook.setDetail(attributes.getValue("DETAIL"));
-				cook.setDico(attributes.getValue("DICO"));
-				cook.setDifficulty(attributes.getValue("DIFFIC"));
-				cook.setDown(attributes.getValue("BDA"));
-				cook.setIco(attributes.getValue("ICO"));
-				cook.setId(attributes.getValue("DNO"));
-				cook.setMain(attributes.getValue("MATERIAL"));
-				cook.setMethod(attributes.getValue("MARK"));
-				cook.setSub(attributes.getValue("AMATERIAL"));
-				cook.setTaste(attributes.getValue("TASTE"));
-				cook.setTime(attributes.getValue("UTIME"));
-				cook.setUnm(attributes.getValue("UNM"));
-				cook.setUp(attributes.getValue("GOOD"));
-				cooklist.add(cook);
-			}else{
-				str = localName;
-			}
-			super.startElement(uri, localName, qName, attributes);
-		}
-
-		/**
-		 * XML标签结束时，执行此函数
-		 */
-		@Override
-		public void endElement(String uri, String localName, String qName)
-				throws SAXException {
-			str = null;
-			// Log.e("TEST", "endElement");
-			super.endElement(uri, localName, qName);
-		}
-
-		/**
-		 * 解析标签内的值，如<chinese>ssss</chinese>，为了读取"ssss"
-		 */
-		@Override
-		public void characters(char[] ch, int start, int length)
-				throws SAXException {
-			if (str != null) {
-				String data = new String(ch, start, length);
-				// XML文件格式化的时候容易产生以下换行，制表符等特殊字符，
-				// 这些需要特别注意处理
-				Pattern p = Pattern.compile("\\s*|\t|\r|\n");
-				Matcher m = p.matcher(data);
-				data = m.replaceAll("");
-
-				if ("ret".equals(str)) {
-					if (!data.equals("")) {
-						result = data;
-					}
-				}else if ("res".equals(str)) {
-					if (!data.equals("")) {
-						errorStr = data;
-					}
-				}
-			}
-		}
-	}
-	private Handler handler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			if (msg.what == 0) { // 添加菜谱成功事件
-				if (result.equals("ok")) {
-					Toast.makeText(AddCookActivity.this,"添加成功！", Toast.LENGTH_SHORT).show();
-				}else{
-					if(errorStr.length() <= 0){
-						errorStr = "未获取请求数据，请检查网络是否连接正常";
-					}
-					Toast.makeText(getApplicationContext(), errorStr, Toast.LENGTH_SHORT).show();
-				}
-			}
-		}
-	};
 }
