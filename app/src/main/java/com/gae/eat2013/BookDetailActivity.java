@@ -12,8 +12,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.gae.UInterface.IBookDetailAction;
+import com.gae.presenter.BookDetailPresenter;
+
 //预定下单详情
-public class BookDetailActivity extends Activity {
+public class BookDetailActivity extends Activity implements IBookDetailAction{
 
 	private TextView textmb;
 	private TextView textprice;
@@ -22,10 +25,11 @@ public class BookDetailActivity extends Activity {
 	private TextView texttimes;
 	private TextView textawnm;
 	private Button btndetail;
+
+    private BookDetailPresenter helper;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bookdetail);
 		
